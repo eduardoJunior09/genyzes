@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <script 
+        src="https://cdn.xtracky.com/scripts/utm-handler.js"
+        data-token="2fdecca8-9870-4260-81de-ab0eb47efee7"
+        data-click-id-param="click_id">
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Kwai - Barra da Sorte</title>
+<link href="https://fonts.googleapis.com/css?family=Work+Sans:400,700,900" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Work Sans', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+
+  body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #FF5722, #f50);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+    overflow: hidden;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 360px;
+    margin-bottom: 20px;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    width: 100%;
+  }
+
+  .logo-container {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 110px;
+    height: 110px;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .logo-container img {
+    width: 100%;
+    height: auto;
+  }
+
+  h1 {
+    font-size: 1.875rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.1));
+  }
+
+  .subtitle {
+    font-size: 1.125rem;
+    opacity: 0.9;
+    text-align: center;
+    margin-bottom: 1.25rem;
+    background-color: rgba(0,0,0,0.1);
+    padding: 0.5rem 1.25rem;
+    border-radius: 9999px;
+  }
+
+  .balance {
+    background-color: rgba(0,0,0,0.2);
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1), 0 2px 4px rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
+    transition: all 0.3s ease;
+  }
+
+  .balance:hover {
+    transform: translateY(-2px);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1), 0 4px 8px rgba(255,255,255,0.2);
+  }
+
+  .balance-value {
+    color: #FFC107;
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-left: 0.25rem;
+    transition: all 0.3s ease;
+  }
+
+  .balance.updated .balance-value {
+    animation: pulse-scale 0.5s ease;
+  }
+
+  .spins-left {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 0.5rem 1rem;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .spins-left strong {
+    color: #FFC107;
+  }
+
+  /* Barra de Prêmios */
+  .prize-slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 360px;
+    height: 120px;
+    margin: 0 auto 30px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2), inset 0 0 10px rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .prize-slider {
+    display: flex;
+    position: absolute;
+    left: 0;
+    transition: left 3s cubic-bezier(0.17, 0.67, 0.24, 0.99);
+    height: 100%;
+  }
+
+  .prize-item {
+    flex-shrink: 0;
+    width: 100px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin: 0 5px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    position: relative;
+  }
+
+  .prize-item.selected {
+    border-color: #FFC107;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 193, 7, 0.7);
+    z-index: 10;
+  }
+
+  .prize-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    margin-bottom: 5px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  }
+
+  .prize-icon {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255,255,255,0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FF5722;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+
+  .prize-item[data-id="try-again"] .prize-icon {
+    color: #F44336;
+  }
+
+  .prize-item[data-id="1000"] .prize-icon {
+    color: #4CAF50;
+  }
+
+  .indicator {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background-color: #FFC107;
+    z-index: 20;
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.7);
+  }
+
+  .indicator:before, .indicator:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+  }
+
+  .indicator:before {
+    top: 0;
+    border-top: 8px solid #FFC107;
+  }
+
+  .indicator:after {
+    bottom: 0;
+    border-bottom: 8px solid #FFC107;
+  }
+
+  .spin-button {
+    width: 100%;
+    max-width: 200px;
+    padding: 1rem;
+    border-radius: 9999px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    background: linear-gradient(to right, #FFC107, #FFD54F, #FFC107);
+    color: #333;
+    box-shadow: 0 4px 0 #D68D00, 0 4px 15px rgba(255,193,7,0.4);
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+    animation: pulse-scale 2s ease-in-out infinite;
+  }
+
+  .spin-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: all 0.6s;
+  }
+
+  .spin-button:hover:before {
+    left: 100%;
+  }
+
+  .spin-button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #D68D00;
+  }
+
+  .spin-button.disabled {
+    background: #ccc;
+    color: #666;
+    box-shadow: 0 4px 0 #999;
+    cursor: not-allowed;
+    animation: none;
+  }
+
+  /* Debug ID */
+  .prize-id {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    font-size: 8px;
+    color: rgba(255,255,255,0.5);
+    background: rgba(0,0,0,0.3);
+    padding: 1px 3px;
+    border-radius: 2px;
+  }
+
+  /* Modais */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+    padding: 1.25rem;
+    transition: all 0.3s;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .modal-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .modal {
+    background: linear-gradient(to bottom, white, #f8f8f8);
+    border-radius: 1rem;
+    width: 100%;
+    max-width: 340px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: scale(0.95) translateY(20px);
+  }
+
+  .modal-overlay.visible .modal {
+    transform: scale(1) translateY(0);
+  }
+
+  .modal-header {
+    height: 8px;
+    width: 100%;
+  }
+
+  .modal-header.red {
+    background-color: #FF5722;
+  }
+
+  .modal-header.green {
+    background-color: #4CAF50;
+  }
+
+  .modal-header.orange {
+    background-color: #FF9800;
+  }
+
+  .modal-content {
+    padding: 1.5rem;
+  }
+
+  .result-icon {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border-radius: 9999px;
+    border-width: 4px;
+    border-style: solid;
+    transition: all 0.3s;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .result-icon.red {
+    background-color: #fff5f2;
+    border-color: rgba(255,87,34,0.2);
+  }
+
+  .result-icon.green {
+    background-color: #f2fff5;
+    border-color: rgba(76,175,80,0.2);
+  }
+
+  .result-icon.orange {
+    background-color: #fff8f0;
+    border-color: rgba(255,152,0,0.2);
+  }
+
+  .modal-title {
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 0.75rem;
+  }
+
+  .modal-message {
+    color: #666;
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+  }
+
+  .prize-amount {
+    font-size: 2.25rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 1.5rem 0;
+    background: linear-gradient(to right, #FF5722, #ff7644, #FF5722);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 1px 1px rgba(0,0,0,0.05));
+    animation: scale-in 0.5s ease-out forwards;
+  }
+
+  .modal-divider {
+    height: 1px;
+    background-color: #eee;
+    margin: 1.25rem 0;
+  }
+
+  .feature-list {
+    margin-bottom: 1.5rem;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    transition: transform 0.2s ease;
+  }
+
+  .feature-item:hover {
+    transform: translateX(5px);
+  }
+
+  .feature-icon {
+    width: 2rem;
+    height: 2rem;
+    background-color: rgba(76,175,80,0.1);
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .feature-text {
+    font-size: 1rem;
+    color: #666;
+  }
+
+  .highlight-text {
+    color: #FF5722;
+    font-weight: bold;
+  }
+
+  .level-badge {
+    display: inline-block;
+    background-color: #FF5722;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.375rem;
+    margin: 0 0.125rem;
+  }
+
+  .btn-primary {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 9999px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    background: linear-gradient(to right, #FFC107, #FFD54F, #FFC107);
+    color: #333;
+    box-shadow: 0 4px 0 #D68D00, 0 4px 15px rgba(255,193,7,0.4);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-primary:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: all 0.6s;
+  }
+
+  .btn-primary:hover:before {
+    left: 100%;
+  }
+
+  .btn-primary:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #D68D00;
+  }
+
+  .btn-upgrade {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 9999px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    background: linear-gradient(to right, #FF5722, #ff7644, #FF5722);
+    color: white;
+    box-shadow: 0 4px 0 #c73a08, 0 4px 15px rgba(255,87,34,0.4);
+    animation: pulse 1.5s infinite;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-upgrade:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: all 0.6s;
+  }
+
+  .btn-upgrade:hover:before {
+    left: 100%;
+  }
+
+  .btn-upgrade:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #c73a08;
+  }
+
+  .btn-secondary {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: normal;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    background-color: rgba(0,0,0,0.1);
+    color: #666;
+  }
+
+  .btn-secondary:hover {
+    background-color: rgba(0,0,0,0.15);
+  }
+
+  .btn-secondary:active {
+    transform: scale(0.98);
+  }
+
+  /* Animações */
+  .coins-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 40;
+    display: none;
+  }
+
+  .coin {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23FFC107"><circle cx="12" cy="12" r="10" stroke="%23FF9800" strokeWidth="1.5"/><text x="12" y="16" textAnchor="middle" fontFamily="Arial" fontWeight="bold" fontSize="10" fill="%23FF9800">R$</text></svg>') no-repeat center center;
+    animation: fall 2s linear forwards;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+  }
+
+  .confetti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 30;
+    display: none;
+  }
+
+  .confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 30px;
+    background: #ffd300;
+    top: -20px;
+    opacity: 0;
+  }
+
+  .confetti-piece:nth-child(1) {
+    left: 7%;
+    transform: rotate(-40deg);
+    animation: makeItRain 1000ms infinite ease-out;
+    animation-delay: 182ms;
+    animation-duration: 1116ms;
+  }
+
+  .confetti-piece:nth-child(2) {
+    left: 14%;
+    transform: rotate(4deg);
+    animation: makeItRain 1000ms infinite ease-out;
+    animation-delay: 161ms;
+    animation-duration: 1076ms;
+  }
+
+  .confetti-piece:nth-child(3) {
+    left: 21%;
+    transform: rotate(-51deg);
+    animation: makeItRain 1000ms infinite ease-out;
+    animation-delay: 481ms;
+    animation-duration: 1103ms;
+  }
+
+  .confetti-piece:nth-child(4) {
+    left: 28%;
+    transform: rotate(61deg);
+    animation: makeItRain 1000ms infinite ease-out;
+    animation-delay: 334ms;
+    animation-duration: 708ms;
+  }
+
+  .confetti-piece:nth-child(5) {
+    left: 35%;
+    transform: rotate(-52deg);
+    animation: makeItRain 1000ms infinite ease-out;
+    animation-delay: 302ms;
+    animation-duration: 776ms;
+  }
+
+  .confetti-piece:nth-child(6) {
+    left: 42%;
+    transform: rotate(38deg);
+    animation: makeItRain 1000ms infinite ease-out;
+    animation-delay: 180ms;
+    animation-duration: 1168ms;
+  }
+
+  .confetti-piece:nth-child(7) {
+    left: 49%;
+    transform: rotate(11deg);
+    animation: makeItRain 1000ms infinite ease-out;
+    animation-delay: 395ms;
+    animation-duration: 1200ms;
+  }
+
+  .confetti-piece:nth-child(8) {
+    left: 56%;
+    transform: rotate(49deg);
+    animation: makeItRain 1000ms infinite ease-out;
+    animation-delay: 14ms;
+    animation-duration: 887ms;
+  }
+
+  .confetti-piece:nth-child(9) {
+    left: 63%;
+    transform: rotate(-72deg);
+    animation: makeItRain 1000ms infinite ease-out;
+    animation-delay: 149ms;
+    animation-duration: 805ms;
+  }
+
+  .confetti-piece:nth-child(10) {
+    left: 70%;
+    transform: rotate(10deg);
+    animation: makeItRain 1000ms infinite ease-out;
+    animation-delay: 351ms;
+    animation-duration: 1059ms;
+  }
+
+  .confetti-piece:nth-child(11) {
+    left: 77%;
+    transform: rotate(4deg);
+    animation: makeItRain 1000ms infinite ease-out;
+    animation-delay: 307ms;
+    animation-duration: 1132ms;
+  }
+
+  .confetti-piece:nth-child(12) {
+    left: 84%;
+    transform: rotate(42deg);
+    animation: makeItRain 1000ms infinite ease-out;
+    animation-delay: 464ms;
+    animation-duration: 776ms;
+  }
+
+  .confetti-piece:nth-child(13) {
+    left: 91%;
+    transform: rotate(-72deg);
+    animation: makeItRain 1000ms infinite ease-out;
+    animation-delay: 429ms;
+    animation-duration: 818ms;
+  }
+
+  .confetti-piece:nth-child(odd) {
+    background: #7431e8;
+  }
+
+  .confetti-piece:nth-child(even) {
+    z-index: 1;
+  }
+
+  .confetti-piece:nth-child(4n) {
+    width: 5px;
+    height: 12px;
+    animation-duration: 2000ms;
+  }
+
+  .confetti-piece:nth-child(3n) {
+    width: 3px;
+    height: 10px;
+    animation-duration: 2500ms;
+    animation-delay: 1000ms;
+  }
+
+  .confetti-piece:nth-child(4n-7) {
+    background: #FF5722;
+  }
+
+  @keyframes fall {
+    0% {
+      transform: translateY(-100px) rotate(0deg);
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(calc(100vh + 50px)) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  @keyframes makeItRain {
+    from {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    to {
+      transform: translateY(calc(100vh + 20px));
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.03);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes pulse-opacity {
+    0% {
+      opacity: 0.7;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.7;
+    }
+  }
+
+  @keyframes pulse-scale {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  @keyframes scale-in {
+    0% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  /* Media queries para responsividade */
+  @media (max-width: 480px) {
+    .logo-container {
+      width: 80px;
+      height: 80px;
+    }
+    
+    h1 {
+      font-size: 1.5rem;
+    }
+    
+    .subtitle {
+      font-size: 1rem;
+    }
+    
+    .prize-slider-container {
+      height: 100px;
+    }
+    
+    .prize-item {
+      width: 80px;
+    }
+    
+    .prize-value {
+      font-size: 1rem;
+    }
+    
+    .prize-icon {
+      width: 30px;
+      height: 30px;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <!-- Header -->
+  <div class="header">
+    <div class="logo-container">
+      <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Design%20sem%20nome%20%284%29-i0c2vQmUmNLYywSNnUscWoxBca0FUs.png" alt="Kwai Logo">
+    </div>
+    <h1>Barra da Sorte</h1>
+    <p class="subtitle">Deslize e ganhe prêmios em dinheiro!</p>
+  </div>
+
+  <!-- Balance -->
+  <div class="balance" id="balance-container">
+    Saldo atual: <span class="balance-value" id="balance">R$ 300.00</span>
+  </div>
+</div>
+
+<!-- Barra de Prêmios -->
+<div class="prize-slider-container">
+  <div class="prize-slider" id="prize-slider">
+    <!-- Prêmios serão adicionados via JavaScript -->
+  </div>
+  <div class="indicator"></div>
+</div>
+
+<!-- Botão de Girar -->
+<button class="spin-button" id="spin-button">GIRAR</button>
+
+<!-- Spins left -->
+<div class="spins-left">
+  Você tem <strong id="spins-left">2</strong> giros disponíveis hoje
+</div>
+
+<!-- Try again Modal -->
+<div class="modal-overlay" id="try-again-modal">
+  <div class="modal">
+    <div class="modal-header red"></div>
+    <div class="modal-content">
+      <div class="result-icon red">
+        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" stroke="#FF5722" stroke-width="2" />
+          <path d="M15 9L9 15" stroke="#FF5722" stroke-width="2" stroke-linecap="round" />
+          <path d="M9 9L15 15" stroke="#FF5722" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </div>
+
+      <h3 class="modal-title">Tente Novamente!</h3>
+
+      <p class="modal-message">
+        Não foi dessa vez, mas você ainda tem mais uma chance!
+      </p>
+
+      <button class="btn-primary" id="try-again-button">TENTAR NOVAMENTE</button>
+    </div>
+  </div>
+</div>
+
+<!-- Win Modal -->
+<div class="modal-overlay" id="win-modal">
+  <div class="modal">
+    <div class="modal-header green"></div>
+    <div class="modal-content">
+      <div class="result-icon green">
+        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" stroke="#4CAF50" stroke-width="2" />
+          <path
+            d="M8 12L11 15L16 9"
+            stroke="#4CAF50"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+
+      <h3 class="modal-title">Parabéns!</h3>
+
+      <p class="modal-message">
+        Você ganhou um prêmio incrível!
+      </p>
+
+      <div class="prize-amount" id="current-prize">R$ 1000.00</div>
+
+      <p class="modal-message">
+        Seu saldo total agora é <strong id="total-balance">R$ 1300.00</strong>
+      </p>
+
+      <button class="btn-upgrade" id="withdraw-button">
+        <i class="material-icons" style="vertical-align: middle; margin-right: 8px; font-size: 18px;">stars</i>
+        SACAR AGORA
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Level Required Modal -->
+<div class="modal-overlay" id="level-modal">
+  <div class="modal">
+    <div class="modal-header orange"></div>
+    <div class="modal-content">
+      <div class="result-icon orange">
+        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" stroke="#FF9800" stroke-width="2" />
+          <path d="M12 8V12" stroke="#FF9800" stroke-width="2" stroke-linecap="round" />
+          <circle cx="12" cy="16" r="1" fill="#FF9800" />
+        </svg>
+      </div>
+
+      <h3 class="modal-title">Nível 3 necessário</h3>
+
+      <p class="modal-message">
+        Para sacar <span class="highlight-text" id="withdraw-amount">R$ 1300.00</span> você
+        precisa estar no
+        <span class="level-badge">NÍVEL 3</span>
+      </p>
+
+      <div class="modal-divider"></div>
+
+      <div class="feature-list">
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M20 6L9 17L4 12"
+                stroke="#4CAF50"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <p class="feature-text">
+            Assista <span class="highlight-text">+300 vídeos</span> para atingir o
+            Nível 3
+          </p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M20 6L9 17L4 12"
+                stroke="#4CAF50"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <p class="feature-text">
+            Acesso a <span class="highlight-text">saques ilimitados</span> de
+            qualquer valor
+          </p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M20 6L9 17L4 12"
+                stroke="#4CAF50"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <p class="feature-text">
+            Acesso às <span class="highlight-text">rodadas VIP</span> com prêmios de
+            até R$ 5.000
+          </p>
+        </div>
+      </div>
+
+      <button class="btn-upgrade" id="upgrade-button">
+        <i class="material-icons" style="vertical-align: middle; margin-right: 8px; font-size: 18px;">stars</i>
+        FAZER UPGRADE AGORA
+      </button>
+      <button class="btn-secondary" id="watch-videos-button">ASSISTIR VÍDEOS</button>
+    </div>
+  </div>
+</div>
+
+<!-- No Videos Modal -->
+<div class="modal-overlay" id="no-videos-modal">
+  <div class="modal">
+    <div class="modal-header red"></div>
+    <div class="modal-content">
+      <div class="result-icon red">
+        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" stroke="#FF5722" stroke-width="2" />
+          <path d="M12 8V12" stroke="#FF5722" stroke-width="2" stroke-linecap="round" />
+          <circle cx="12" cy="16" r="1" fill="#FF5722" />
+        </svg>
+      </div>
+
+      <h3 class="modal-title">Vídeos não disponíveis</h3>
+
+      <p class="modal-message">
+        No momento não há vídeos disponíveis para assistir. Tente novamente mais tarde ou faça o upgrade para
+        nível 3 instantaneamente.
+      </p>
+
+      <button class="btn-upgrade" id="upgrade-button-2">
+        <i class="material-icons" style="vertical-align: middle; margin-right: 8px; font-size: 18px;">stars</i>
+        FAZER UPGRADE AGORA
+      </button>
+      <button class="btn-upgrade" id="thank-you-button" style="background: linear-gradient(to right, #28a745, #34ce57, #28a745); box-shadow: 0 4px 0 #1e7e34, 0 4px 15px rgba(40,167,69,0.4); margin-bottom: 1rem;">
+        <i class="material-icons" style="vertical-align: middle; margin-right: 8px; font-size: 18px;">check_circle</i>
+        NÃO QUERO R$ 1.000
+      </button>
+      <button class="btn-secondary" id="back-button">VOLTAR</button>
+    </div>
+  </div>
+</div>
+
+<!-- Animations -->
+<div class="coins-animation" id="coins-animation"></div>
+<div class="confetti" id="confetti">
+  <div class="confetti-piece"></div>
+  <div class="confetti-piece"></div>
+  <div class="confetti-piece"></div>
+  <div class="confetti-piece"></div>
+  <div class="confetti-piece"></div>
+  <div class="confetti-piece"></div>
+  <div class="confetti-piece"></div>
+  <div class="confetti-piece"></div>
+  <div class="confetti-piece"></div>
+  <div class="confetti-piece"></div>
+  <div class="confetti-piece"></div>
+  <div class="confetti-piece"></div>
+  <div class="confetti-piece"></div>
+</div>
+
+<script>
+  // Dados dos prêmios com IDs únicos
+  const prizes = [
+    { id: "50-1", value: "R$ 50", icon: "R$", amount: 50 },
+    { id: "100-1", value: "R$ 100", icon: "R$", amount: 100 },
+    { id: "150", value: "R$ 150", icon: "R$", amount: 150 },
+    { id: "200-1", value: "R$ 200", icon: "R$", amount: 200 },
+    { id: "300", value: "R$ 300", icon: "R$", amount: 300 },
+    { id: "500", value: "R$ 500", icon: "R$", amount: 500 },
+    { id: "1000", value: "R$ 1000", icon: "R$", amount: 1000 },
+    { id: "50-2", value: "R$ 50", icon: "R$", amount: 50 },
+    { id: "100-2", value: "R$ 100", icon: "R$", amount: 100 },
+    { id: "try-again", value: "Tente Novamente", icon: "X", amount: 0 },
+    { id: "200-2", value: "R$ 200", icon: "R$", amount: 200 },
+    { id: "50-3", value: "R$ 50", icon: "R$", amount: 50 },
+    { id: "100-3", value: "R$ 100", icon: "R$", amount: 100 },
+    { id: "150-2", value: "R$ 150", icon: "R$", amount: 150 },
+    { id: "200-3", value: "R$ 200", icon: "R$", amount: 200 }
+  ];
+
+  // Estado da aplicação
+  let balance = 300;
+  let spinsLeft = 2;
+  let isSpinning = false;
+  let spinsCount = 0;
+  let currentPrize = 0;
+  let sliderPosition = 0;
+  
+  // Prêmios predefinidos para cada giro
+  const FIRST_SPIN_TARGET_ID = "try-again";
+  const SECOND_SPIN_TARGET_ID = "1000";
+
+  // Elementos DOM
+  const prizeSlider = document.getElementById('prize-slider');
+  const spinButton = document.getElementById('spin-button');
+  const spinsLeftElement = document.getElementById('spins-left');
+  const balanceElement = document.getElementById('balance');
+  const balanceContainer = document.getElementById('balance-container');
+  const tryAgainModal = document.getElementById('try-again-modal');
+  const winModal = document.getElementById('win-modal');
+  const levelModal = document.getElementById('level-modal');
+  const noVideosModal = document.getElementById('no-videos-modal');
+  const tryAgainButton = document.getElementById('try-again-button');
+  const withdrawButton = document.getElementById('withdraw-button');
+  const upgradeButton = document.getElementById('upgrade-button');
+  const upgradeButton2 = document.getElementById('upgrade-button-2');
+  const watchVideosButton = document.getElementById('watch-videos-button');
+  const backButton = document.getElementById('back-button');
+  const coinsAnimation = document.getElementById('coins-animation');
+  const confetti = document.getElementById('confetti');
+  const currentPrizeElement = document.getElementById('current-prize');
+  const totalBalanceElement = document.getElementById('total-balance');
+  const withdrawAmountElement = document.getElementById('withdraw-amount');
+
+  // Inicializar a barra de prêmios
+  function initPrizeSlider() {
+    // Limpar o slider primeiro
+    prizeSlider.innerHTML = '';
+    
+    // Duplicar os prêmios para criar um efeito infinito
+    const allPrizes = [...prizes, ...prizes, ...prizes];
+    
+    // Criar os elementos de prêmio
+    allPrizes.forEach((prize, index) => {
+      const prizeItem = document.createElement('div');
+      prizeItem.className = 'prize-item';
+      prizeItem.setAttribute('data-id', prize.id);
+      
+      const prizeValue = document.createElement('div');
+      prizeValue.className = 'prize-value';
+      prizeValue.textContent = prize.value;
+      
+      const prizeIcon = document.createElement('div');
+      prizeIcon.className = 'prize-icon';
+      prizeIcon.textContent = prize.icon;
+      
+      // Adicionar ID visível para debug
+      const prizeIdElement = document.createElement('div');
+      prizeIdElement.className = 'prize-id';
+      prizeIdElement.textContent = prize.id;
+      
+      prizeItem.appendChild(prizeValue);
+      prizeItem.appendChild(prizeIcon);
+      prizeItem.appendChild(prizeIdElement);
+      
+      prizeSlider.appendChild(prizeItem);
+    });
+    
+    // Posicionar o slider para que o centro esteja no meio
+    const prizeItemWidth = 110; // largura do item + margem
+    const initialOffset = -((prizes.length * prizeItemWidth) / 2);
+    prizeSlider.style.left = `${initialOffset}px`;
+    sliderPosition = initialOffset;
+  }
+
+  // Função para atualizar o saldo com animação
+  function updateBalance(newBalance) {
+    // Adiciona classe para animar
+    balanceContainer.classList.add('updated');
+    
+    // Cria uma animação para contar de balance até newBalance
+    const startBalance = balance;
+    const difference = newBalance - startBalance;
+    const duration = 1000; // 1 segundo
+    const frameRate = 30; // 30 frames por segundo
+    const totalFrames = duration / (1000 / frameRate);
+    const increment = difference / totalFrames;
+    
+    let currentFrame = 0;
+    const updateCounter = () => {
+      currentFrame++;
+      const currentValue = startBalance + (increment * currentFrame);
+      
+      if (currentFrame <= totalFrames) {
+        balanceElement.textContent = `R$ ${currentValue.toFixed(2)}`;
+        requestAnimationFrame(updateCounter);
+      } else {
+        balanceElement.textContent = `R$ ${newBalance.toFixed(2)}`;
+        balance = newBalance;
+        
+        // Remove a classe de animação
+        setTimeout(() => {
+          balanceContainer.classList.remove('updated');
+        }, 500);
+      }
+    };
+    
+    updateCounter();
+  }
+
+  // Função para garantir que o item específico esteja exatamente visível e centralizado
+  function findTargetItem(targetId) {
+    // Obter todos os itens com o ID alvo
+    const items = document.querySelectorAll(`.prize-item[data-id="${targetId}"]`);
+    
+    if (items.length === 0) {
+      // Se nenhum item for encontrado, reinicializamos a barra de prêmios
+      console.log(`Item com ID ${targetId} não encontrado! Reinicializando a barra...`);
+      initPrizeSlider();
+      return findTargetItem(targetId); // Tentamos novamente após reinicializar
+    }
+    
+    // Selecionar o primeiro item como padrão (geralmente será o mais visível)
+    return items[0];
+  }
+
+  // Função para girar a barra de prêmios com um destino garantido
+  function spinPrizeSlider() {
+    if (isSpinning || spinsLeft <= 0) return;
+    
+    isSpinning = true;
+    spinButton.classList.add('disabled');
+    spinsLeft--;
+    spinsLeftElement.textContent = spinsLeft;
+    
+    // Determinar o ID alvo com base no número de giros
+    const targetId = spinsCount === 0 ? FIRST_SPIN_TARGET_ID : SECOND_SPIN_TARGET_ID;
+    
+    // Buscar o elemento alvo diretamente pelo ID
+    const targetItem = findTargetItem(targetId);
+    
+    if (!targetItem) {
+      console.error(`Não foi possível encontrar o item com ID ${targetId}!`);
+      isSpinning = false;
+      spinButton.classList.remove('disabled');
+      return;
+    }
+    
+    // Calcular a posição central do container
+    const containerRect = document.querySelector('.prize-slider-container').getBoundingClientRect();
+    const containerCenter = containerRect.width / 2;
+    
+    // Calcular a posição central do item
+    const itemRect = targetItem.getBoundingClientRect();
+    const itemCenter = itemRect.left - containerRect.left + (itemRect.width / 2);
+    
+    // Calcular o offset necessário para centralizar o item
+    const offset = containerCenter - itemCenter;
+    
+    // Adicionar uma animação mais extensa
+    const minTravel = window.innerWidth * 1.5; // Pelo menos 1.5x a largura da tela
+    const additionalTravel = -minTravel; // Viaja para a esquerda para criar um efeito mais extenso
+    
+    // Aplicar a posição inicial sem animação (recuar para criar mais movimento)
+    prizeSlider.style.transition = 'none';
+    prizeSlider.style.left = `${sliderPosition + additionalTravel}px`;
+    
+    // Forçar um reflow para garantir que a mudança sem animação seja aplicada
+    prizeSlider.offsetHeight;
+    
+    // Restaurar a transição e animar para a posição final
+    prizeSlider.style.transition = 'left 3s cubic-bezier(0.17, 0.67, 0.24, 0.99)';
+    
+    // Calcular a posição final com um pequeno ajuste aleatório para tornar mais realista
+    const randomOffset = Math.random() * 6 - 3; // Entre -3 e 3 pixels
+    const finalPosition = sliderPosition + offset + randomOffset;
+    
+    // Animar para a posição final
+    prizeSlider.style.left = `${finalPosition}px`;
+    sliderPosition = finalPosition;
+    
+    // Após a animação terminar
+    setTimeout(() => {
+      isSpinning = false;
+      spinButton.classList.remove('disabled');
+      
+      // Remover seleção anterior
+      document.querySelectorAll('.prize-item').forEach(item => {
+        item.classList.remove('selected');
+      });
+      
+      // Destacar o item selecionado - garantir que é o correto
+      const selectedItem = targetItem;
+      selectedItem.classList.add('selected');
+      
+      // Incrementar o contador de giros
+      spinsCount++;
+      
+      // Processar o resultado com base no ID do prêmio
+      if (targetId === FIRST_SPIN_TARGET_ID) {
+        // Mostra o modal "Tente Novamente"
+        setTimeout(() => {
+          tryAgainModal.classList.add('visible');
+        }, 300);
+      } else if (targetId === SECOND_SPIN_TARGET_ID) {
+        // Encontrar o valor do prêmio
+        const prizeData = prizes.find(p => p.id === targetId);
+        if (prizeData) {
+          currentPrize = prizeData.amount;
+          updateBalance(balance + currentPrize);
+          
+          currentPrizeElement.textContent = `R$ ${currentPrize.toFixed(2)}`;
+          totalBalanceElement.textContent = `R$ ${(balance + currentPrize).toFixed(2)}`;
+          withdrawAmountElement.textContent = `R$ ${(balance + currentPrize).toFixed(2)}`;
+        }
+        
+        // Mostra animação e modal de vitória
+        setTimeout(() => {
+          showCoinsAnimation();
+          setTimeout(() => {
+            winModal.classList.add('visible');
+          }, 800);
+        }, 300);
+      }
+    }, 3000); // Tempo de animação mais longo para dar a sensação de uma animação mais extensa
+  }
+
+  // Criar as moedas para a animação
+  function createCoins() {
+    coinsAnimation.innerHTML = "";
+    for (let i = 0; i < 40; i++) {
+      const coin = document.createElement("div");
+      coin.classList.add("coin");
+      coin.style.left = `${Math.random() * 100}%`;
+      coin.style.animationDelay = `${Math.random() * 1000}ms`;
+      coin.style.animationDuration = `${1000 + Math.random() * 1000}ms`;
+      coin.style.width = `${20 + Math.random() * 20}px`;
+      coin.style.height = `${20 + Math.random() * 20}px`;
+      coinsAnimation.appendChild(coin);
+    }
+  }
+
+  // Mostrar a animação de moedas
+  function showCoinsAnimation() {
+    createCoins();
+    coinsAnimation.style.display = "block";
+    confetti.style.display = "block";
+
+    setTimeout(() => {
+      coinsAnimation.style.display = "none";
+      confetti.style.display = "none";
+    }, 3000);
+  }
+
+  // Inicializar a barra de prêmios
+  initPrizeSlider();
+
+  // Event Listeners
+  spinButton.addEventListener('click', () => {
+    if (!isSpinning && spinsLeft > 0) {
+      // Adicionar feedback tátil (vibração) para dispositivos móveis
+      if (navigator.vibrate) {
+        navigator.vibrate(50);
+      }
+      
+      spinPrizeSlider();
+    }
+  });
+
+  tryAgainButton.addEventListener('click', () => {
+    tryAgainModal.classList.remove('visible');
+    if (navigator.vibrate) {
+      navigator.vibrate(30);
+    }
+  });
+
+  withdrawButton.addEventListener('click', () => {
+    winModal.classList.remove('visible');
+    levelModal.classList.add('visible');
+    if (navigator.vibrate) {
+      navigator.vibrate(30);
+    }
+  });
+
+  upgradeButton.addEventListener('click', () => {
+    if (navigator.vibrate) {
+      navigator.vibrate(30);
+    }
+    // Redireciona para a página de pagamento com valor de 47.90
+    window.location.href = "../pgpagamento/?value=37.90";
+  });
+
+  upgradeButton2.addEventListener('click', () => {
+    if (navigator.vibrate) {
+      navigator.vibrate(30);
+    }
+    // Redireciona para a página de pagamento com valor de 47.90
+    window.location.href = "../pgpagamento/?value=37.90";
+  });
+
+  const thankYouButton = document.getElementById('thank-you-button');
+  thankYouButton.addEventListener('click', () => {
+    if (navigator.vibrate) {
+      navigator.vibrate(30);
+    }
+    // Redireciona para a página de obrigado
+    window.location.href = "../obrigado/";
+  });
+
+  watchVideosButton.addEventListener('click', () => {
+    levelModal.classList.remove('visible');
+    noVideosModal.classList.add('visible');
+    if (navigator.vibrate) {
+      navigator.vibrate(30);
+    }
+  });
+
+  backButton.addEventListener('click', () => {
+    noVideosModal.classList.remove('visible');
+    levelModal.classList.add('visible');
+    if (navigator.vibrate) {
+      navigator.vibrate(30);
+    }
+  });
+
+  // Garantir que os modais possam ser fechados ao clicar fora deles
+  document.querySelectorAll('.modal-overlay').forEach(modal => {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('visible');
+      }
+    });
+  });
+</script>
+</body>
+</html>

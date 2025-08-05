@@ -1,0 +1,251 @@
+.elementor-89 .elementor-element.elementor-element-3cd3dcb {
+    --display: flex;
+    --flex-direction: column;
+    --container-widget-width: calc( ( 1 - var( --container-widget-flex-grow)) * 100%);
+    --container-widget-height: initial;
+    --container-widget-flex-grow: 0;
+    --container-widget-align-self: initial;
+    --flex-wrap-mobile: wrap;
+    --justify-content: center;
+    --align-items: center;
+    --padding-top: 20px;
+    --padding-bottom: 20px;
+    --padding-left: 0px;
+    --padding-right: 0px;
+}
+
+.elementor-89 .elementor-element.elementor-element-3cd3dcb:not(.elementor-motion-effects-element-type-background),
+.elementor-89 .elementor-element.elementor-element-3cd3dcb>.elementor-motion-effects-container>.elementor-motion-effects-layer {
+    background-color: #202020;
+}
+
+.elementor-widget-heading .elementor-heading-title {
+    font-family: var( --e-global-typography-primary-font-family), Sans-serif;
+    font-weight: var( --e-global-typography-primary-font-weight);
+    color: var( --e-global-color-primary);
+}
+
+.elementor-89 .elementor-element.elementor-element-77d0b4d {
+    text-align: center;
+}
+
+.elementor-89 .elementor-element.elementor-element-77d0b4d .elementor-heading-title {
+    font-family: "Roboto", Sans-serif;
+    font-weight: 600;
+    color: #EB0000;
+}
+
+.elementor-89 .elementor-element.elementor-element-b6e990f {
+    --display: flex;
+    --flex-direction: column;
+    --container-widget-width: calc( ( 1 - var( --container-widget-flex-grow)) * 100%);
+    --container-widget-height: initial;
+    --container-widget-flex-grow: 0;
+    --container-widget-align-self: initial;
+    --flex-wrap-mobile: wrap;
+    --justify-content: center;
+    --align-items: center;
+    --padding-top: 40px;
+    --padding-bottom: 40px;
+    --padding-left: 0px;
+    --padding-right: 0px;
+}
+
+.elementor-89 .elementor-element.elementor-element-fc1305e {
+    width: var( --container-widget-width, 70%);
+    max-width: 70%;
+    --container-widget-width: 70%;
+    --container-widget-flex-grow: 0;
+    text-align: center;
+}
+
+.elementor-89 .elementor-element.elementor-element-fc1305e .elementor-heading-title {
+    font-family: "Roboto", Sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: #000000;
+}
+
+.elementor-89 .elementor-element.elementor-element-5226543 {
+    --display: flex;
+    --flex-direction: row;
+    --container-widget-width: calc( ( 1 - var( --container-widget-flex-grow)) * 100%);
+    --container-widget-height: 100%;
+    --container-widget-flex-grow: 1;
+    --container-widget-align-self: stretch;
+    --flex-wrap-mobile: wrap;
+    --justify-content: center;
+    --align-items: center;
+    --flex-wrap: wrap;
+    --border-radius: 12px 12px 12px 12px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.22);
+    --padding-top: 30px;
+    --padding-bottom: 30px;
+    --padding-left: 30px;
+    --padding-right: 30px;
+}
+
+.elementor-89 .elementor-element.elementor-element-5226543:not(.elementor-motion-effects-element-type-background),
+.elementor-89 .elementor-element.elementor-element-5226543>.elementor-motion-effects-container>.elementor-motion-effects-layer {
+    background-color: #202020;
+}
+
+.elementor-89 .elementor-element.elementor-element-2e86e10 {
+    width: 100%;
+    max-width: 100%;
+    margin: 0px 0px calc(var(--kit-widget-spacing, 0px) + 0px) 0px;
+    text-align: center;
+}
+
+.elementor-89 .elementor-element.elementor-element-2e86e10 .elementor-heading-title {
+    font-family: "Roboto", Sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #FFFFFF;
+}
+
+.elementor-89 .elementor-element.elementor-element-674c4e3 {
+    width: 100%;
+    max-width: 100%;
+}
+
+.elementor-89 .elementor-element.elementor-element-674c4e3 .elementor-wrapper {
+    --video-aspect-ratio: 1.77777;
+}
+
+.elementor-89 .elementor-element.elementor-element-4fd3520 {
+    width: 100%;
+    max-width: 100%;
+    margin: 15px 0px calc(var(--kit-widget-spacing, 0px) + 0px) 0px;
+    text-align: center;
+}
+
+.elementor-89 .elementor-element.elementor-element-4fd3520 .elementor-heading-title {
+    font-family: "Roboto", Sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: #FFFFFF;
+}
+
+.elementor-widget-button .elementor-button {
+    background-color: var( --e-global-color-accent);
+    font-family: var( --e-global-typography-accent-font-family), Sans-serif;
+    font-weight: var( --e-global-typography-accent-font-weight);
+}
+
+.elementor-89 .elementor-element.elementor-element-85b6e75 .elementor-button-content-wrapper {
+    flex-direction: row;
+}
+
+.elementor-89 .elementor-element.elementor-element-85b6e75 .elementor-button {
+    font-family: "Roboto", Sans-serif;
+    font-weight: 500;
+}
+
+.elementor-89 .elementor-element.elementor-element-5c65eb2 .elementor-button {
+    background-color: #FF0000;
+    font-family: "Roboto", Sans-serif;
+    font-weight: 500;
+}
+
+.elementor-89 .elementor-element.elementor-element-5c65eb2 .elementor-button-content-wrapper {
+    flex-direction: row;
+}
+
+.elementor-widget-text-editor {
+    color: var( --e-global-color-text);
+    font-family: var( --e-global-typography-text-font-family), Sans-serif;
+    font-weight: var( --e-global-typography-text-font-weight);
+}
+
+.elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap {
+    background-color: var( --e-global-color-primary);
+}
+
+.elementor-widget-text-editor.elementor-drop-cap-view-framed .elementor-drop-cap,
+.elementor-widget-text-editor.elementor-drop-cap-view-default .elementor-drop-cap {
+    color: var( --e-global-color-primary);
+    border-color: var( --e-global-color-primary);
+}
+
+.elementor-89 .elementor-element.elementor-element-1a2aab8 {
+    text-align: center;
+    color: #5A5A5A;
+    font-family: "Roboto", Sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.elementor-89 .elementor-element.elementor-element-5133a42 {
+    text-align: center;
+    color: #5A5A5A;
+    font-family: "Roboto", Sans-serif;
+    font-weight: 400;
+}
+
+@media(min-width:768px) {
+    .elementor-89 .elementor-element.elementor-element-5226543 {
+        --width: 50%;
+    }
+}
+
+@media(max-width:767px) {
+    .elementor-89 .elementor-element.elementor-element-3cd3dcb {
+        --padding-top: 20px;
+        --padding-bottom: 20px;
+        --padding-left: 10px;
+        --padding-right: 10px;
+    }
+    .elementor-89 .elementor-element.elementor-element-77d0b4d .elementor-heading-title {
+        font-size: 24px;
+    }
+    .elementor-89 .elementor-element.elementor-element-b6e990f {
+        --padding-top: 20px;
+        --padding-bottom: 20px;
+        --padding-left: 10px;
+        --padding-right: 10px;
+    }
+    .elementor-89 .elementor-element.elementor-element-fc1305e {
+        width: 100%;
+        max-width: 100%;
+    }
+    .elementor-89 .elementor-element.elementor-element-fc1305e .elementor-heading-title {
+        font-size: 24px;
+    }
+    .elementor-89 .elementor-element.elementor-element-5226543 {
+        --gap: 10px 10px;
+        --row-gap: 10px;
+        --column-gap: 10px;
+        --padding-top: 20px;
+        --padding-bottom: 20px;
+        --padding-left: 20px;
+        --padding-right: 20px;
+    }
+    .elementor-89 .elementor-element.elementor-element-2e86e10 {
+        margin: 0px 0px calc(var(--kit-widget-spacing, 0px) + 5px) 0px;
+    }
+    .elementor-89 .elementor-element.elementor-element-2e86e10 .elementor-heading-title {
+        font-size: 16px;
+    }
+    .elementor-89 .elementor-element.elementor-element-4fd3520 {
+        margin: 15px 0px calc(var(--kit-widget-spacing, 0px) + 5px) 0px;
+    }
+    .elementor-89 .elementor-element.elementor-element-4fd3520 .elementor-heading-title {
+        font-size: 20px;
+    }
+    .elementor-89 .elementor-element.elementor-element-85b6e75 .elementor-button {
+        font-size: 14px;
+    }
+    .elementor-89 .elementor-element.elementor-element-5c65eb2 .elementor-button {
+        font-size: 14px;
+    }
+    .elementor-89 .elementor-element.elementor-element-1a2aab8 {
+        margin: 0px 0px calc(var(--kit-widget-spacing, 0px) + -15px) 0px;
+        font-size: 15px;
+        line-height: 17px;
+    }
+    .elementor-89 .elementor-element.elementor-element-5133a42 {
+        margin: 20px 0px calc(var(--kit-widget-spacing, 0px) + 0px) 0px;
+        font-size: 12px;
+    }
+}
