@@ -153,8 +153,6 @@ if (isset($data['id']) && isset($data['status'])) {
     ]);
 }
 
-
-
 // Responder com status 200 para confirmar recebimento
 http_response_code(200);
 ?>

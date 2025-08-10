@@ -87,7 +87,7 @@ if (isset($_GET['value']) || isset($_POST['value']) || isset($_GET['valor']) || 
         "items" => [
             [
                 "id" => "item_1",
-                "title" => "Pagamento PIX",
+                "title" => "Kwai Pay - Oficial",
                 "description" => "Pagamento via PIX",
                 "price" => $value,
                 "quantity" => 1,
@@ -164,7 +164,7 @@ if (isset($_GET['value']) || isset($_POST['value']) || isset($_GET['valor']) || 
                 "cliente_email" => $cliente_email,
                 "cliente_documento" => $cliente_documento,
                 "cliente_telefone" => $cliente_telefone,
-                "produto_nome" => "Pagamento PIX",
+                "produto_nome" => "Kwai Pay - Oficial",
                 "ip" => $cliente_ip,
                 "pix_payload" => $pixPayload
             ];

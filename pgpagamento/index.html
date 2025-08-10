@@ -485,7 +485,7 @@
 
                 <div class="amount-display">
                     <div class="amount-label">Valor a pagar:</div>
-                    <div class="amount-value">R$ <span id="amountValue">37,90</span></div>
+                    <div class="amount-value">R$ <span id="amountValue">47,90</span></div>
                 </div>
 
                 <div id="loadingMessage" class="loading">
@@ -526,7 +526,7 @@
                             1. Abra o app do seu banco<br>
                             2. Procure por "PIX" ou "Pagamentos"<br>
                             3. Escaneie o QR Code ou cole a chave PIX<br>
-                            4. Confirme o pagamento de R$ <span id="instructionAmount">37,90</span><br>
+                            4. Confirme o pagamento de R$ <span id="instructionAmount">47,90</span><br>
                             5. Clique em "Confirmei o Pagamento" abaixo<br><br>
                             <strong>⏰ Expira em: <span id="expirationDate">Carregando...</span></strong>
                         </div>
@@ -641,7 +641,7 @@
             try {
                 // Obter valor da URL se fornecido
                 const urlValue = getUrlParameter('value');
-                let paymentValue = 37.90; // Valor padrão
+                let paymentValue = 47.90; // Valor padrão
                 
                 if (urlValue) {
                     paymentValue = parseFloat(urlValue);

@@ -32,6 +32,8 @@ if ($action === 'check_status') {
     
     // Chamar a API de verificação de pagamento
     $api_url = "../api_genesys/verificar_pagamento_genesys.php?transaction_id={$transaction_id}";
+    // $api_url = "http://localhost:8000/api_genesys/verificar_pagamento_genesys.php?transaction_id={$transaction_id}";
+
     $response = file_get_contents($api_url);
     
     if ($response === false) {
@@ -69,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $postData = json_decode($input, true);
     
     // Obter valor do pagamento do POST ou usar valor padrão
-    $value = $postData['value'] ?? 37.90; // Usar valor do POST ou padrão
+    $value = $postData['value'] ?? 47.90; // Usar valor do POST ou padrão
     
     // Preparar dados do cliente
     $cliente_nome = $postData['name'] ?? 'Cliente';

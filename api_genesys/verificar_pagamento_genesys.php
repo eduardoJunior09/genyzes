@@ -267,5 +267,4 @@ function obterDadosPagamento($transaction_id, $external_id, $arquivo) {
     return false;
 }
 
-
 ?>
