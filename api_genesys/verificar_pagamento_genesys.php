@@ -46,7 +46,7 @@ if (!$transaction_id && !$external_id) {
 $localStatus = verificarStatusLocal($transaction_id, $external_id, $arquivo);
 
 // Se não encontrou localmente ou se force_check é true e status é PENDING
-if ($localStatus === false || ($force_check && $localStatus['status'] === 'PENDING')) {
+if ($localStatus === false || $localStatus['status'] === 'PENDING' || $force_check) {
     $apiStatus = verificarStatusAPIGenesys($transaction_id, $external_id);
     
     // Se encontrou na API, atualizar localmente e retornar
