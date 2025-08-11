@@ -127,7 +127,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo json_encode([
             'status' => 'error',
             'message' => 'Erro ao gerar pagamento PIX',
-            'details' => $responseData['message'] ?? 'Erro desconhecido'
+            'details' => $responseData['message'] ?? 'Erro desconhecido',
+            'raw_response' => $response, // Conteúdo bruto retornado pelo gerar_genesys.php
+            'decoded_response' => $responseData // O que o json_decode interpretou
         ]);
     }
 
