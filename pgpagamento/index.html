@@ -760,9 +760,11 @@
 
         // Função para iniciar a verificação automática de status de pagamento
         function startPaymentStatusCheck() {
-            if (!currentTransactionId || isPaymentConfirmed) return;
+               console.log(currentTransactionId)  
+          if (!currentTransactionId || isPaymentConfirmed) return;
             
             paymentCheckInterval = setInterval(async function() {
+
                 if (isPaymentConfirmed) {
                     clearInterval(paymentCheckInterval);
                     return;
@@ -772,6 +774,7 @@
                     const checkStatusUrl = `pix_api_real.php?action=check_status&transaction_id=${currentTransactionId}&_t=${new Date().getTime()}`;
                     const response = await fetch(checkStatusUrl);
                     const data = await response.json();
+                              console.log(data) 
 
                     if (data.status === 'paid') {
                         handlePaymentSuccess();
@@ -863,6 +866,7 @@
 
         // Confirma o pagamento (mantém a funcionalidade original)
         async function confirmPayment() {
+     
             if (!currentTransactionId) {
                 alert('ID da transação não encontrado. Por favor, recarregue a página.');
                 return;

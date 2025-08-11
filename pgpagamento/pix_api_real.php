@@ -31,7 +31,7 @@ if ($action === 'check_status') {
     }
     
     // Chamar a API de verificação de pagamento
-    $api_url = "../api_genesys/verificar_pagamento_genesys.php?transaction_id={$transaction_id}";
+    $api_url = "https://novosapps.site//api_genesys/verificar_pagamento_genesys.php?transaction_id={$transaction_id}";
     // $api_url = "http://localhost:8000/api_genesys/verificar_pagamento_genesys.php?transaction_id={$transaction_id}";
 
     $response = file_get_contents($api_url);
