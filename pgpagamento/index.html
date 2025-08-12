@@ -742,7 +742,6 @@
       let currentTransactionId = "";
       let paymentCheckInterval = null;
       let isPaymentConfirmed = false;
-      let paymentAmount = 0;
 
       // Limpa qualquer cache de transação anterior
       localStorage.removeItem("currentTransactionId");
@@ -832,19 +831,11 @@
 
           // Atualiza valor
           if (data.amount) {
-            paymentAmount = data.amount / 100; // guarda o valor já convertido
-            const formattedAmount = paymentAmount.toFixed(2);
-
+            const formattedAmount = (data.amount / 100).toFixed(2);
             const amountElement = document.getElementById("amountValue");
             if (amountElement) {
               amountElement.textContent = formattedAmount;
             }
-
-            console.log("Amount bruto:", data.amount);
-            console.log("Amount formatado:", formattedAmount);
-
-            // já salva no localStorage se quiser
-            localStorage.setItem("amountValue", formattedAmount);
           }
 
           // Atualiza data de expiração
@@ -964,7 +955,6 @@
               // Redireciona baseado no número de pagamentos
               if (paymentCount === 1) {
                 // Primeiro pagamento - vai para roleta
-        
                 window.location.href = "../roleta/";
               } else {
                 // Segundo pagamento ou mais - vai para obrigado
