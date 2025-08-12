@@ -1256,7 +1256,7 @@
     </div>
 
     <script>
-      const amountRoleta = localStorage.getItem("amountRoleta");
+      const amountRoleta = localStorage.getItem("amountValue");
       console.log("Valor recebido na roleta:", amountRoleta);
 
       // Dados dos prêmios com IDs únicos
@@ -1313,7 +1313,7 @@
       const withdrawAmountElement = document.getElementById("withdraw-amount");
 
       document.addEventListener("DOMContentLoaded", function () {
-        balanceElement.textContent = `R$ ${balance.toFixed(2)}`;
+        balanceElement.textContent = `R$ ${balance}`;
       });
       // Inicializar a barra de prêmios
       function initPrizeSlider() {
