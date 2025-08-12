@@ -1256,7 +1256,7 @@
     </div>
 
     <script>
-      const amountRoleta = localStorage.getItem("brlValue");
+      const amountRoleta = parseFloat(localStorage.getItem("brlValue")) || 0;
       console.log("Valor recebido na roleta:", amountRoleta);
 
       // Dados dos prêmios com IDs únicos
