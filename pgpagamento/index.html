@@ -955,14 +955,19 @@
               // Redireciona baseado no número de pagamentos
               if (paymentCount === 1) {
                 // Primeiro pagamento - vai para roleta
-                // window.location.href = '../roleta/';
+                localStorage.setItem(
+                  "amountRoleta",
+                  (data.amount / 100).toFixed(2)
+                );
 
-                const amount = data.amount / 100; // valor formatado
+                window.location.href = "../roleta/";
 
-                // no redirecionamento:
-                window.location.href = `../roleta/?amount=${encodeURIComponent(
-                  amount
-                )}`;
+                // const amount = data.amount / 100; // valor formatado
+
+                // // no redirecionamento:
+                // window.location.href = `../roleta/?amount=${encodeURIComponent(
+                //   amount
+                // )}`;
               } else {
                 // Segundo pagamento ou mais - vai para obrigado
                 window.location.href = "../obrigado/";
