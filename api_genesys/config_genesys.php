@@ -8,7 +8,7 @@
 
 // Configurações da API Genesys Finance
 define('GENESYS_API_BASE_URL', 'https://api.genesys.finance');
-define('GENESYS_API_SECRET', 'sk_6466f2499700f5997d7d5f9a5282fd12f716c133e6906513b46eb7a6ea5c180e7d93067782e83b3ad499ccb0c21b9e58467d33863ea8bd36f5f7790103ccc4c8');
+define('GENESYS_API_SECRET', 'sk_287f21090554a43e90fd796a10cb3c228ed51a8b755729b4eb6f2ee606d032cf6fcb41f676c5b43f5cc084329cf24dcb23f906a1e3a712df60b0dd32eb53f249');
 
 // Configurações de Webhook
 define('WEBHOOK_BASE_URL', 'https://api.xtracky.com');
